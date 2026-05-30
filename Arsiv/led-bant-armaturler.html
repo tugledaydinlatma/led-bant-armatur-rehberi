@@ -1,0 +1,704 @@
+
+html_content = '''<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LED Bant Armatür - Modern Aydınlatma Çözümleri</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        dark: {
+                            900: '#0a0a0f',
+                            800: '#12121a',
+                            700: '#1a1a2e',
+                            600: '#252542',
+                            500: '#3a3a5c',
+                        },
+                        accent: {
+                            primary: '#6366f1',
+                            secondary: '#8b5cf6',
+                            glow: '#a78bfa',
+                        }
+                    },
+                    animation: {
+                        'fade-in': 'fadeIn 0.8s ease-out forwards',
+                        'slide-up': 'slideUp 0.6s ease-out forwards',
+                        'glow': 'glow 2s ease-in-out infinite alternate',
+                        'float': 'float 6s ease-in-out infinite',
+                    },
+                    keyframes: {
+                        fadeIn: {
+                            '0%': { opacity: '0' },
+                            '100%': { opacity: '1' },
+                        },
+                        slideUp: {
+                            '0%': { opacity: '0', transform: 'translateY(30px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        },
+                        glow: {
+                            '0%': { boxShadow: '0 0 20px rgba(99, 102, 241, 0.3)' },
+                            '100%': { boxShadow: '0 0 40px rgba(99, 102, 241, 0.6)' },
+                        },
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-10px)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #0a0a0f;
+            color: #e2e8f0;
+        }
+        .glass-card {
+            background: rgba(26, 26, 46, 0.6);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(99, 102, 241, 0.15);
+        }
+        .glass-card:hover {
+            border-color: rgba(99, 102, 241, 0.4);
+            box-shadow: 0 0 30px rgba(99, 102, 241, 0.15);
+        }
+        .gradient-text {
+            background: linear-gradient(135deg, #6366f1, #8b5cf6, #a78bfa);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .hero-glow {
+            position: absolute;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(99, 102, 241, 0.15) 0%, transparent 70%);
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            pointer-events: none;
+        }
+        .table-row-hover:hover {
+            background: rgba(99, 102, 241, 0.08);
+        }
+        .icon-box {
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.2), rgba(139, 92, 246, 0.2));
+        }
+        .progress-bar {
+            background: linear-gradient(90deg, #6366f1, #8b5cf6);
+        }
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0a0a0f;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #3a3a5c;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #6366f1;
+        }
+    </style>
+</head>
+<body class="font-sans antialiased overflow-x-hidden">
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 glass-card border-b border-white/5">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+            <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-accent-primary to-accent-secondary flex items-center justify-center">
+                    <i class="fas fa-lightbulb text-white text-lg"></i>
+                </div>
+                <span class="text-xl font-bold tracking-tight">LED<span class="gradient-text">Lamba</span></span>
+            </div>
+            <div class="hidden md:flex items-center gap-8 text-sm font-medium text-gray-400">
+                <a href="#nedir" class="hover:text-white transition-colors">Nedir?</a>
+                <a href="#kullanim" class="hover:text-white transition-colors">Kullanım Alanları</a>
+                <a href="#modeller" class="hover:text-white transition-colors">Modeller</a>
+                <a href="#karsilastirma" class="hover:text-white transition-colors">Karşılaştırma</a>
+                <a href="#secim" class="hover:text-white transition-colors">Seçim Rehberi</a>
+            </div>
+            <button class="px-5 py-2.5 rounded-xl bg-gradient-to-r from-accent-primary to-accent-secondary text-white text-sm font-semibold hover:shadow-lg hover:shadow-accent-primary/30 transition-all">
+                <i class="fas fa-shopping-cart mr-2"></i>Ürünleri İncele
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden">
+        <div class="hero-glow"></div>
+        <div class="absolute top-20 right-20 w-72 h-72 bg-accent-secondary/10 rounded-full blur-3xl"></div>
+        <div class="absolute bottom-20 left-20 w-96 h-96 bg-accent-primary/10 rounded-full blur-3xl"></div>
+        
+        <div class="max-w-7xl mx-auto px-6 relative z-10">
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
+                <div class="animate-slide-up">
+                    <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-accent-primary/10 border border-accent-primary/20 text-accent-glow text-sm font-medium mb-6">
+                        <span class="w-2 h-2 rounded-full bg-accent-primary animate-pulse"></span>
+                        Modern Aydınlatma Çözümleri
+                    </div>
+                    <h1 class="text-5xl lg:text-7xl font-extrabold leading-tight mb-6">
+                        LED Bant<br>
+                        <span class="gradient-text">Armatür</span>
+                    </h1>
+                    <p class="text-lg text-gray-400 leading-relaxed mb-8 max-w-xl">
+                        Enerji verimliliği ve estetik görünüm açısından ev, ofis ve ticari mekânlar için ideal aydınlatma çözümü. Homojen ışık dağılımı ve uzun ömür.
+                    </p>
+                    <div class="flex flex-wrap gap-4">
+                        <button class="px-8 py-4 rounded-2xl bg-gradient-to-r from-accent-primary to-accent-secondary text-white font-semibold hover:shadow-xl hover:shadow-accent-primary/30 transition-all transform hover:-translate-y-1">
+                            <i class="fas fa-arrow-right mr-2"></i>Detayları Keşfet
+                        </button>
+                        <button class="px-8 py-4 rounded-2xl glass-card text-white font-semibold hover:bg-white/5 transition-all">
+                            <i class="fas fa-play mr-2"></i>Tanıtım Videosu
+                        </button>
+                    </div>
+                    <div class="flex items-center gap-8 mt-12">
+                        <div>
+                            <div class="text-3xl font-bold gradient-text">50.000+</div>
+                            <div class="text-sm text-gray-500">Saat Ömür</div>
+                        </div>
+                        <div class="w-px h-12 bg-white/10"></div>
+                        <div>
+                            <div class="text-3xl font-bold gradient-text">%80</div>
+                            <div class="text-sm text-gray-500">Enerji Tasarrufu</div>
+                        </div>
+                        <div class="w-px h-12 bg-white/10"></div>
+                        <div>
+                            <div class="text-3xl font-bold gradient-text">6+</div>
+                            <div class="text-sm text-gray-500">Model Çeşidi</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="relative animate-float hidden lg:block">
+                    <div class="relative w-full aspect-square max-w-lg mx-auto">
+                        <div class="absolute inset-0 bg-gradient-to-br from-accent-primary/20 to-accent-secondary/20 rounded-3xl blur-2xl"></div>
+                        <div class="relative glass-card rounded-3xl p-8 h-full flex items-center justify-center">
+                            <div class="text-center">
+                                <div class="w-32 h-32 mx-auto mb-6 rounded-2xl bg-gradient-to-br from-accent-primary to-accent-secondary flex items-center justify-center shadow-2xl shadow-accent-primary/30">
+                                    <i class="fas fa-lightbulb text-6xl text-white"></i>
+                                </div>
+                                <div class="space-y-3">
+                                    <div class="h-3 w-48 mx-auto bg-white/10 rounded-full"></div>
+                                    <div class="h-3 w-32 mx-auto bg-white/10 rounded-full"></div>
+                                    <div class="h-3 w-40 mx-auto bg-white/10 rounded-full"></div>
+                                </div>
+                                <div class="mt-8 grid grid-cols-3 gap-4">
+                                    <div class="p-3 rounded-xl bg-white/5">
+                                        <i class="fas fa-home text-accent-primary text-xl mb-2"></i>
+                                        <div class="text-xs text-gray-400">Ev</div>
+                                    </div>
+                                    <div class="p-3 rounded-xl bg-white/5">
+                                        <i class="fas fa-building text-accent-secondary text-xl mb-2"></i>
+                                        <div class="text-xs text-gray-400">Ofis</div>
+                                    </div>
+                                    <div class="p-3 rounded-xl bg-white/5">
+                                        <i class="fas fa-store text-accent-glow text-xl mb-2"></i>
+                                        <div class="text-xs text-gray-400">Mağaza</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- What is LED Bant Armatür -->
+    <section id="nedir" class="py-24 relative">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-accent-primary/10 border border-accent-primary/20 text-accent-glow text-sm font-medium mb-4">
+                    <i class="fas fa-info-circle"></i>
+                    Tanım
+                </div>
+                <h2 class="text-4xl font-bold mb-4">LED Bant Armatür <span class="gradient-text">Nedir?</span></h2>
+                <p class="text-gray-400 max-w-2xl mx-auto">Modern aydınlatmanın temel taşı</p>
+            </div>
+            
+            <div class="glass-card rounded-3xl p-8 lg:p-12 max-w-4xl mx-auto">
+                <div class="flex flex-col md:flex-row gap-8 items-center">
+                    <div class="w-24 h-24 rounded-2xl icon-box flex items-center justify-center flex-shrink-0">
+                        <i class="fas fa-bolt text-4xl text-accent-primary"></i>
+                    </div>
+                    <div>
+                        <p class="text-lg text-gray-300 leading-relaxed">
+                            LED bant armatür, içerisine yerleştirilen LED ışık kaynaklarını koruyan ve dağıtan, genellikle <span class="text-accent-glow font-semibold">alüminyum gövdeli</span> lineer aydınlatma ürünleridir. Bu armatürler, LED bantların ısınmasını önleyerek ömürlerini uzatırken, ışığı <span class="text-accent-glow font-semibold">homojen bir şekilde</span> yayarak göz yorgunluğunu azaltır.
+                        </p>
+                        <div class="mt-6 flex flex-wrap gap-3">
+                            <span class="px-4 py-2 rounded-full bg-accent-primary/10 border border-accent-primary/20 text-accent-glow text-sm">Alüminyum Gövde</span>
+                            <span class="px-4 py-2 rounded-full bg-accent-primary/10 border border-accent-primary/20 text-accent-glow text-sm">Homojen Işık</span>
+                            <span class="px-4 py-2 rounded-full bg-accent-primary/10 border border-accent-primary/20 text-accent-glow text-sm">Uzun Ömür</span>
+                            <span class="px-4 py-2 rounded-full bg-accent-primary/10 border border-accent-primary/20 text-accent-glow text-sm">Enerji Verimli</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Usage Areas -->
+    <section id="kullanim" class="py-24 relative">
+        <div class="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-accent-primary/30 to-transparent"></div>
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-accent-primary/10 border border-accent-primary/20 text-accent-glow text-sm font-medium mb-4">
+                    <i class="fas fa-map-marker-alt"></i>
+                    Uygulama Alanları
+                </div>
+                <h2 class="text-4xl font-bold mb-4">Kullanım <span class="gradient-text">Alanları</span></h2>
+                <p class="text-gray-400 max-w-2xl mx-auto">Her mekâna uygun çözümler</p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Card 1 -->
+                <div class="glass-card rounded-2xl p-6 hover:scale-[1.02] transition-all duration-300 group">
+                    <div class="w-14 h-14 rounded-xl bg-gradient-to-br from-orange-500/20 to-red-500/20 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                        <i class="fas fa-home text-2xl text-orange-400"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Evler</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">Mutfak dolap altı, banyo aynaları, TV ünitesi arkası dekoratif aydınlatma</p>
+                </div>
+                
+                <!-- Card 2 -->
+                <div class="glass-card rounded-2xl p-6 hover:scale-[1.02] transition-all duration-300 group">
+                    <div class="w-14 h-14 rounded-xl bg-gradient-to-br from-blue-500/20 to-cyan-500/20 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                        <i class="fas fa-building text-2xl text-blue-400"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Ofisler</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">Asma tavan, çalışma masası üstü, toplantı odası genel aydınlatma</p>
+                </div>
+                
+                <!-- Card 3 -->
+                <div class="glass-card rounded-2xl p-6 hover:scale-[1.02] transition-all duration-300 group">
+                    <div class="w-14 h-14 rounded-xl bg-gradient-to-br from-purple-500/20 to-pink-500/20 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                        <i class="fas fa-store text-2xl text-purple-400"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Mağazalar</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">Vitrin, raf altı, reyon aydınlatması</p>
+                </div>
+                
+                <!-- Card 4 -->
+                <div class="glass-card rounded-2xl p-6 hover:scale-[1.02] transition-all duration-300 group">
+                    <div class="w-14 h-14 rounded-xl bg-gradient-to-br from-yellow-500/20 to-orange-500/20 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                        <i class="fas fa-utensils text-2xl text-yellow-400"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Restoran & Kafeler</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">Ortam aydınlatması, menü panosu, dekoratif vurgu ışıkları</p>
+                </div>
+                
+                <!-- Card 5 -->
+                <div class="glass-card rounded-2xl p-6 hover:scale-[1.02] transition-all duration-300 group">
+                    <div class="w-14 h-14 rounded-xl bg-gradient-to-br from-green-500/20 to-emerald-500/20 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                        <i class="fas fa-industry text-2xl text-green-400"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Endüstriyel Tesisler</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">Üretim hatları, depo ve antrepo genel aydınlatma</p>
+                </div>
+                
+                <!-- Card 6 -->
+                <div class="glass-card rounded-2xl p-6 hover:scale-[1.02] transition-all duration-300 group">
+                    <div class="w-14 h-14 rounded-xl bg-gradient-to-br from-rose-500/20 to-pink-500/20 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                        <i class="fas fa-hotel text-2xl text-rose-400"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Otel & Konaklama</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">Koridor, lobi, oda içi dekoratif uygulamalar</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Models -->
+    <section id="modeller" class="py-24 relative">
+        <div class="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-accent-secondary/30 to-transparent"></div>
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-accent-primary/10 border border-accent-primary/20 text-accent-glow text-sm font-medium mb-4">
+                    <i class="fas fa-cubes"></i>
+                    Ürün Yelpazesi
+                </div>
+                <h2 class="text-4xl font-bold mb-4">Modeller ve <span class="gradient-text">Çeşitler</span></h2>
+                <p class="text-gray-400 max-w-2xl mx-auto">İhtiyacınıza en uygun modeli seçin</p>
+            </div>
+            
+            <div class="space-y-6">
+                <!-- Model 1 -->
+                <div class="glass-card rounded-2xl p-6 lg:p-8 flex flex-col lg:flex-row gap-6 items-start hover:border-accent-primary/40 transition-all">
+                    <div class="w-16 h-16 rounded-xl bg-gradient-to-br from-accent-primary/20 to-accent-secondary/20 flex items-center justify-center flex-shrink-0">
+                        <span class="text-2xl font-bold text-accent-primary">01</span>
+                    </div>
+                    <div class="flex-1">
+                        <h3 class="text-xl font-bold mb-2">Yüzey Monte Armatürler</h3>
+                        <p class="text-gray-400 leading-relaxed">Tavana veya duvara doğrudan monte edilen, kurulumu en pratik modellerdir. Dar ve uzun yapısıyla minimalist bir görünüm sunar.</p>
+                    </div>
+                    <div class="flex items-center gap-2 text-accent-glow text-sm">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Kolay Kurulum</span>
+                    </div>
+                </div>
+                
+                <!-- Model 2 -->
+                <div class="glass-card rounded-2xl p-6 lg:p-8 flex flex-col lg:flex-row gap-6 items-start hover:border-accent-primary/40 transition-all">
+                    <div class="w-16 h-16 rounded-xl bg-gradient-to-br from-accent-secondary/20 to-accent-glow/20 flex items-center justify-center flex-shrink-0">
+                        <span class="text-2xl font-bold text-accent-secondary">02</span>
+                    </div>
+                    <div class="flex-1">
+                        <h3 class="text-xl font-bold mb-2">Sıva Altı (Gömme) Armatürler</h3>
+                        <p class="text-gray-400 leading-relaxed">Asma tavan içine gömülerek monte edilir. Tavan ile bütünleşik, sade ve modern bir görünüm elde edilir.</p>
+                    </div>
+                    <div class="flex items-center gap-2 text-accent-glow text-sm">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Gizli Montaj</span>
+                    </div>
+                </div>
+                
+                <!-- Model 3 -->
+                <div class="glass-card rounded-2xl p-6 lg:p-8 flex flex-col lg:flex-row gap-6 items-start hover:border-accent-primary/40 transition-all">
+                    <div class="w-16 h-16 rounded-xl bg-gradient-to-br from-accent-glow/20 to-purple-400/20 flex items-center justify-center flex-shrink-0">
+                        <span class="text-2xl font-bold text-accent-glow">03</span>
+                    </div>
+                    <div class="flex-1">
+                        <h3 class="text-xl font-bold mb-2">Asma Tavan Armatürleri</h3>
+                        <p class="text-gray-400 leading-relaxed">T-grid asma tavan sistemlerine uygun olarak üretilir. Ofis ve ticari alanlarda en çok tercih edilen çeşittir.</p>
+                    </div>
+                    <div class="flex items-center gap-2 text-accent-glow text-sm">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Ticari Standart</span>
+                    </div>
+                </div>
+                
+                <!-- Model 4 -->
+                <div class="glass-card rounded-2xl p-6 lg:p-8 flex flex-col lg:flex-row gap-6 items-start hover:border-accent-primary/40 transition-all">
+                    <div class="w-16 h-16 rounded-xl bg-gradient-to-br from-cyan-400/20 to-blue-400/20 flex items-center justify-center flex-shrink-0">
+                        <span class="text-2xl font-bold text-cyan-400">04</span>
+                    </div>
+                    <div class="flex-1">
+                        <h3 class="text-xl font-bold mb-2">Köşe ve Profil Armatürler</h3>
+                        <p class="text-gray-400 leading-relaxed">Dolap içi, merdiven altı, raf köşeleri gibi dar alanlarda kullanılır. Esnek montaj imkânı sunar.</p>
+                    </div>
+                    <div class="flex items-center gap-2 text-accent-glow text-sm">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Esnek Kullanım</span>
+                    </div>
+                </div>
+                
+                <!-- Model 5 -->
+                <div class="glass-card rounded-2xl p-6 lg:p-8 flex flex-col lg:flex-row gap-6 items-start hover:border-accent-primary/40 transition-all">
+                    <div class="w-16 h-16 rounded-xl bg-gradient-to-br from-green-400/20 to-emerald-400/20 flex items-center justify-center flex-shrink-0">
+                        <span class="text-2xl font-bold text-green-400">05</span>
+                    </div>
+                    <div class="flex-1">
+                        <h3 class="text-xl font-bold mb-2">Su Geçirmez (IP65+) Modeller</h3>
+                        <p class="text-gray-400 leading-relaxed">Banyo, mutfak, dış mekân ve nemli ortamlar için üretilmiş, toz ve suya dayanıklı armatürlerdir.</p>
+                    </div>
+                    <div class="flex items-center gap-2 text-accent-glow text-sm">
+                        <i class="fas fa-check-circle"></i>
+                        <span>IP65+ Koruma</span>
+                    </div>
+                </div>
+                
+                <!-- Model 6 - Featured -->
+                <div class="relative rounded-2xl p-6 lg:p-8 flex flex-col lg:flex-row gap-6 items-start border border-accent-primary/40 bg-gradient-to-br from-accent-primary/10 to-accent-secondary/10 overflow-hidden">
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-accent-primary/20 rounded-full blur-3xl"></div>
+                    <div class="w-16 h-16 rounded-xl bg-gradient-to-br from-accent-primary to-accent-secondary flex items-center justify-center flex-shrink-0 relative z-10">
+                        <span class="text-2xl font-bold text-white">06</span>
+                    </div>
+                    <div class="flex-1 relative z-10">
+                        <div class="flex items-center gap-2 mb-2">
+                            <h3 class="text-xl font-bold">Kristal LED Bant Armatür</h3>
+                            <span class="px-3 py-1 rounded-full bg-accent-primary/20 border border-accent-primary/30 text-accent-glow text-xs font-semibold">Premium</span>
+                        </div>
+                        <p class="text-gray-300 leading-relaxed">Özellikle dekoratif aydınlatmada öne çıkan Kristal LED bant armatür modelleri, şık ve modern tasarımlarıyla lobi, otel, restoran ve ev dekorasyonunda sıkça tercih edilir. Kristal detayları sayesinde ışığı estetik bir şekilde kırarak mekâna lüks bir hava katar.</p>
+                    </div>
+                    <div class="flex items-center gap-2 text-accent-glow text-sm relative z-10">
+                        <i class="fas fa-gem"></i>
+                        <span>Dekoratif Lüks</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Comparison Table -->
+    <section id="karsilastirma" class="py-24 relative">
+        <div class="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-accent-primary/30 to-transparent"></div>
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-accent-primary/10 border border-accent-primary/20 text-accent-glow text-sm font-medium mb-4">
+                    <i class="fas fa-table"></i>
+                    Karşılaştırma
+                </div>
+                <h2 class="text-4xl font-bold mb-4">Model <span class="gradient-text">Karşılaştırma</span> Tablosu</h2>
+                <p class="text-gray-400 max-w-2xl mx-auto">Farklı ihtiyaçlara yönelik modellerin temel özellikleri</p>
+            </div>
+            
+            <div class="glass-card rounded-2xl overflow-hidden">
+                <div class="overflow-x-auto">
+                    <table class="w-full text-sm">
+                        <thead>
+                            <tr class="border-b border-white/10">
+                                <th class="text-left p-4 lg:p-6 font-semibold text-gray-300">Özellik</th>
+                                <th class="text-center p-4 lg:p-6 font-semibold text-blue-400">Ofis Tipi</th>
+                                <th class="text-center p-4 lg:p-6 font-semibold text-purple-400">Dekoratif</th>
+                                <th class="text-center p-4 lg:p-6 font-semibold text-accent-glow">Kristal Model</th>
+                                <th class="text-center p-4 lg:p-6 font-semibold text-green-400">Endüstriyel</th>
+                                <th class="text-center p-4 lg:p-6 font-semibold text-cyan-400">Su Geçirmez</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="table-row-hover border-b border-white/5 transition-colors">
+                                <td class="p-4 lg:p-6 font-medium text-gray-300"><i class="fas fa-bolt w-6 text-accent-primary"></i>Güç (Watt/m)</td>
+                                <td class="p-4 lg:p-6 text-center text-gray-400">40W</td>
+                                <td class="p-4 lg:p-6 text-center text-gray-400">40W - 60W</td>
+                                <td class="p-4 lg:p-6 text-center text-gray-400">40W - 60W</td>
+                                <td class="p-4 lg:p-6 text-center text-gray-400">80W - 100W</td>
+                                <td class="p-4 lg:p-6 text-center text-gray-400">60W - 80W</td>
+                            </tr>
+                            <tr class="table-row-hover border-b border-white/5 transition-colors">
+                                <td class="p-4 lg:p-6 font-medium text-gray-300"><i class="fas fa-thermometer-half w-6 text-accent-primary"></i>Renk Sıcaklığı</td>
+                                <td class="p-4 lg:p-6 text-center text-gray-400">4000K - 6500K</td>
+                                <td class="p-4 lg:p-6 text-center text-gray-400">2700K - 4000K</td>
+                                <td class="p-4 lg:p-6 text-center text-gray-400">3000K - 4000K</td>
+                                <td class="p-4 lg:p-6 text-center text-gray-400">4000K - 6000K</td>
+                                <td class="p-4 lg:p-6 text-center text-gray-400">3000K - 6000K</td>
+                            </tr>
+                            <tr class="table-row-hover border-b border-white/5 transition-colors">
+                                <td class="p-4 lg:p-6 font-medium text-gray-300"><i class="fas fa-shield-alt w-6 text-accent-primary"></i>IP Koruması</td>
+                                <td class="p-4 lg:p-6 text-center text-gray-400">IP20</td>
+                                <td class="p-4 lg:p-6 text-center text-gray-400">IP20</td>
+                                <td class="p-4 lg:p-6 text-center text-gray-400">IP20</td>
+                                <td class="p-4 lg:p-6 text-center text-gray-400">IP40 - IP54</td>
+                                <td class="p-4 lg:p-6 text-center text-gray-400 font-semibold text-cyan-400">IP65 - IP67</td>
+                            </tr>
+                            <tr class="table-row-hover border-b border-white/5 transition-colors">
+                                <td class="p-4 lg:p-6 font-medium text-gray-300"><i class="fas fa-tools w-6 text-accent-primary"></i>Montaj Tipi</td>
+                                <td class="p-4 lg:p-6 text-center text-gray-400">Sıva Üstü / Gömme</td>
+                                <td class="p-4 lg:p-6 text-center text-gray-400">Yüzey / Köşe</td>
+                                <td class="p-4 lg:p-6 text-center text-gray-400">Yüzey / Sarkıt</td>
+                                <td class="p-4 lg:p-6 text-center text-gray-400">Sıva Üstü / Askı</td>
+                                <td class="p-4 lg:p-6 text-center text-gray-400">Yüzey / Gömme</td>
+                            </tr>
+                            <tr class="table-row-hover border-b border-white/5 transition-colors">
+                                <td class="p-4 lg:p-6 font-medium text-gray-300"><i class="fas fa-clock w-6 text-accent-primary"></i>Ortalama Ömür</td>
+                                <td class="p-4 lg:p-6 text-center text-gray-400">50.000 saat</td>
+                                <td class="p-4 lg:p-6 text-center text-gray-400">30.000 saat</td>
+                                <td class="p-4 lg:p-6 text-center text-gray-400">30K - 50K saat</td>
+                                <td class="p-4 lg:p-6 text-center text-gray-400 font-semibold text-green-400">50.000+ saat</td>
+                                <td class="p-4 lg:p-6 text-center text-gray-400">50.000 saat</td>
+                            </tr>
+                            <tr class="table-row-hover border-b border-white/5 transition-colors">
+                                <td class="p-4 lg:p-6 font-medium text-gray-300"><i class="fas fa-map-marker-alt w-6 text-accent-primary"></i>En Uygun Alan</td>
+                                <td class="p-4 lg:p-6 text-center text-gray-400">Ofis, Mağaza</td>
+                                <td class="p-4 lg:p-6 text-center text-gray-400">Ev, Otel, Kafe</td>
+                                <td class="p-4 lg:p-6 text-center text-gray-400">Lobi, Restoran, Ev</td>
+                                <td class="p-4 lg:p-6 text-center text-gray-400">Fabrika, Depo</td>
+                                <td class="p-4 lg:p-6 text-center text-gray-400">Banyo, Dış Mekân</td>
+                            </tr>
+                            <tr class="table-row-hover transition-colors">
+                                <td class="p-4 lg:p-6 font-medium text-gray-300"><i class="fas fa-tag w-6 text-accent-primary"></i>Fiyat Aralığı</td>
+                                <td class="p-4 lg:p-6 text-center"><span class="px-3 py-1 rounded-full bg-blue-500/10 text-blue-400 text-xs">Orta</span></td>
+                                <td class="p-4 lg:p-6 text-center"><span class="px-3 py-1 rounded-full bg-purple-500/10 text-purple-400 text-xs">Düşük - Orta</span></td>
+                                <td class="p-4 lg:p-6 text-center"><span class="px-3 py-1 rounded-full bg-accent-primary/10 text-accent-glow text-xs">Orta - Yüksek</span></td>
+                                <td class="p-4 lg:p-6 text-center"><span class="px-3 py-1 rounded-full bg-green-500/10 text-green-400 text-xs">Orta - Yüksek</span></td>
+                                <td class="p-4 lg:p-6 text-center"><span class="px-3 py-1 rounded-full bg-cyan-500/10 text-cyan-400 text-xs">Orta - Yüksek</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Selection Guide -->
+    <section id="secim" class="py-24 relative">
+        <div class="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-accent-secondary/30 to-transparent"></div>
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-accent-primary/10 border border-accent-primary/20 text-accent-glow text-sm font-medium mb-4">
+                    <i class="fas fa-compass"></i>
+                    Rehber
+                </div>
+                <h2 class="text-4xl font-bold mb-4">Seçim <span class="gradient-text">Rehberi</span></h2>
+                <p class="text-gray-400 max-w-2xl mx-auto">Doğru ürünü seçmek için dikkat etmeniz gerekenler</p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Guide 1 -->
+                <div class="glass-card rounded-2xl p-6 relative overflow-hidden group hover:border-accent-primary/40 transition-all">
+                    <div class="absolute top-0 right-0 w-24 h-24 bg-accent-primary/10 rounded-full blur-2xl group-hover:bg-accent-primary/20 transition-all"></div>
+                    <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-accent-primary/20 to-accent-secondary/20 flex items-center justify-center mb-4">
+                        <span class="text-xl font-bold text-accent-primary">1</span>
+                    </div>
+                    <h3 class="text-lg font-bold mb-2">Amaç ve Mekân</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">Aydınlatmanın kullanılacağı alanın ihtiyacını belirleyin. Genel aydınlatma mı, vurgu ışığı mı yoksa dekoratif amaçlı mı kullanacaksınız?</p>
+                </div>
+                
+                <!-- Guide 2 -->
+                <div class="glass-card rounded-2xl p-6 relative overflow-hidden group hover:border-accent-primary/40 transition-all">
+                    <div class="absolute top-0 right-0 w-24 h-24 bg-accent-secondary/10 rounded-full blur-2xl group-hover:bg-accent-secondary/20 transition-all"></div>
+                    <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-accent-secondary/20 to-accent-glow/20 flex items-center justify-center mb-4">
+                        <span class="text-xl font-bold text-accent-secondary">2</span>
+                    </div>
+                    <h3 class="text-lg font-bold mb-2">Renk Sıcaklığı</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">Sıcak beyaz (2700K-3000K) ev ve oteller için; gün ışığı (4000K-5000K) ofis için; soğuk beyaz (6000K+) endüstriyel alanlar için uygundur.</p>
+                </div>
+                
+                <!-- Guide 3 -->
+                <div class="glass-card rounded-2xl p-6 relative overflow-hidden group hover:border-accent-primary/40 transition-all">
+                    <div class="absolute top-0 right-0 w-24 h-24 bg-accent-glow/10 rounded-full blur-2xl group-hover:bg-accent-glow/20 transition-all"></div>
+                    <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-accent-glow/20 to-purple-400/20 flex items-center justify-center mb-4">
+                        <span class="text-xl font-bold text-accent-glow">3</span>
+                    </div>
+                    <h3 class="text-lg font-bold mb-2">IP Koruması</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">Nemli veya açık alanlarda IP65 ve üzeri modeller tercih edilmelidir. Kapalı alanlar için IP20 yeterlidir.</p>
+                </div>
+                
+                <!-- Guide 4 -->
+                <div class="glass-card rounded-2xl p-6 relative overflow-hidden group hover:border-accent-primary/40 transition-all">
+                    <div class="absolute top-0 right-0 w-24 h-24 bg-cyan-400/10 rounded-full blur-2xl group-hover:bg-cyan-400/20 transition-all"></div>
+                    <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-cyan-400/20 to-blue-400/20 flex items-center justify-center mb-4">
+                        <span class="text-xl font-bold text-cyan-400">4</span>
+                    </div>
+                    <h3 class="text-lg font-bold mb-2">Montaj Tipi</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">Mevcut tavan yapınıza uygun yüzey, gömme veya asma tavan modelini seçin. Kurulum kolaylığı önemli bir faktördür.</p>
+                </div>
+                
+                <!-- Guide 5 -->
+                <div class="glass-card rounded-2xl p-6 relative overflow-hidden group hover:border-accent-primary/40 transition-all md:col-span-2 lg:col-span-2">
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-accent-primary/10 rounded-full blur-3xl group-hover:bg-accent-primary/20 transition-all"></div>
+                    <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-accent-primary/20 to-accent-secondary/20 flex items-center justify-center mb-4">
+                        <span class="text-xl font-bold text-accent-primary">5</span>
+                    </div>
+                    <h3 class="text-lg font-bold mb-2">Güç ve Lümen</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed mb-4">Alanın büyüklüğüne göre yeterli ışık akısı sağlayacak watt değerini belirleyin.</p>
+                    <div class="grid grid-cols-3 gap-4">
+                        <div class="p-4 rounded-xl bg-white/5 text-center">
+                            <div class="text-2xl font-bold text-accent-primary mb-1">40W</div>
+                            <div class="text-xs text-gray-500">Küçük Mekânlar</div>
+                        </div>
+                        <div class="p-4 rounded-xl bg-white/5 text-center">
+                            <div class="text-2xl font-bold text-accent-secondary mb-1">60-80W</div>
+                            <div class="text-xs text-gray-500">Orta Ölçekli</div>
+                        </div>
+                        <div class="p-4 rounded-xl bg-white/5 text-center">
+                            <div class="text-2xl font-bold text-accent-glow mb-1">100-120W</div>
+                            <div class="text-xs text-gray-500">Geniş & Yüksek Tavan</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-24 relative">
+        <div class="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-accent-primary/30 to-transparent"></div>
+        <div class="max-w-4xl mx-auto px-6">
+            <div class="relative rounded-3xl overflow-hidden">
+                <div class="absolute inset-0 bg-gradient-to-br from-accent-primary/20 to-accent-secondary/20"></div>
+                <div class="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg width=\"60\" height=\"60\" viewBox=\"0 0 60 60\" xmlns=\"http://www.w3.org/2000/svg\"%3E%3Cg fill=\"none\" fill-rule=\"evenodd\"%3E%3Cg fill=\"%236366f1\" fill-opacity=\"0.05\"%3E%3Cpath d=\"M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z\"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')] opacity-50"></div>
+                <div class="relative p-8 lg:p-12 text-center">
+                    <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-accent-primary to-accent-secondary flex items-center justify-center mx-auto mb-6 shadow-2xl shadow-accent-primary/30">
+                        <i class="fas fa-lightbulb text-3xl text-white"></i>
+                    </div>
+                    <h2 class="text-3xl lg:text-4xl font-bold mb-4">Mekânınıza Işık Katın</h2>
+                    <p class="text-gray-300 text-lg mb-8 max-w-xl mx-auto">LED bant armatürler ile enerji tasarrufu sağlarken, mekânınıza modern ve şık bir görünüm kazandırın.</p>
+                    <div class="flex flex-wrap justify-center gap-4">
+                        <button class="px-8 py-4 rounded-2xl bg-gradient-to-r from-accent-primary to-accent-secondary text-white font-semibold hover:shadow-xl hover:shadow-accent-primary/30 transition-all transform hover:-translate-y-1">
+                            <i class="fas fa-shopping-bag mr-2"></i>Ürünleri İncele
+                        </button>
+                        <button class="px-8 py-4 rounded-2xl glass-card text-white font-semibold hover:bg-white/10 transition-all">
+                            <i class="fas fa-phone mr-2"></i>Bize Ulaşın
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-12 border-t border-white/5">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex flex-col md:flex-row items-center justify-between gap-6">
+                <div class="flex items-center gap-3">
+                    <div class="w-8 h-8 rounded-lg bg-gradient-to-br from-accent-primary to-accent-secondary flex items-center justify-center">
+                        <i class="fas fa-lightbulb text-white text-sm"></i>
+                    </div>
+                    <span class="text-lg font-bold">LED<span class="gradient-text">Lamba</span></span>
+                </div>
+                <div class="text-gray-500 text-sm">
+                    Modern aydınlatma çözümleri için güvenilir adres.
+                </div>
+                <div class="flex items-center gap-4">
+                    <a href="#" class="w-10 h-10 rounded-xl glass-card flex items-center justify-center text-gray-400 hover:text-white hover:border-accent-primary/40 transition-all">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="#" class="w-10 h-10 rounded-xl glass-card flex items-center justify-center text-gray-400 hover:text-white hover:border-accent-primary/40 transition-all">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="#" class="w-10 h-10 rounded-xl glass-card flex items-center justify-center text-gray-400 hover:text-white hover:border-accent-primary/40 transition-all">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scroll for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.glass-card').forEach((el, index) => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = `opacity 0.6s ease-out ${index * 0.1}s, transform 0.6s ease-out ${index * 0.1}s`;
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>'''
+
+with open('/mnt/agents/output/led_bant_armatur.html', 'w', encoding='utf-8') as f:
+    f.write(html_content)
+
+print("HTML dosyası başarıyla oluşturuldu!")
+print(f"Dosya boyutu: {len(html_content)} karakter")
