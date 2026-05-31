@@ -1,16 +1,9 @@
 [
   {
     "title": "LED Bant Armatür Rehberi",
-    "description": "LED bant armatür seçimi ve kurulumu hakkında detaylı rehber",
+    "description": "LED bant armatür nedir, kullanım alanları, modelleri ve çeşitleri hakkında kapsamlı rehber",
     "date": "2026-05-30",
     "category": "LED Teknolojileri",
-    "file": "led-bant-armatur-rehberi.html"
-  },
-  {
-    "title": "Enerji Verimliliği İpuçları",
-    "description": "Aydınlatma sistemlerinde enerji tasarrufu yöntemleri",
-    "date": "2026-05-25",
-    "category": "Enerji",
-    "file": "enerji-verimliligi.html"
+    "file": "Arsiv/led-bant-armatur-rehberi.html"
   }
 ]
