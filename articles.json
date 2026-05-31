@@ -1,17 +1,16 @@
-
 [
-  {
-    "title": "LED Bant Armatür Rehberi",
-    "description": "LED bant armatür nedir, kullanım alanları, modelleri ve çeşitleri hakkında kapsamlı rehber",
-    "date": "2026-05-30",
-    "category": "LED Teknolojileri",
-    "file": "Arsiv/led-bant-armaturler.html"
-  },
   {
     "title": "LED Projektör Nedir? Kullanım Alanları, Modelleri ve Çeşitleri",
     "description": "LED projektör nedir, kullanım alanları, modelleri ve çeşitleri hakkında kapsamlı rehber",
     "date": "2026-05-31",
     "category": "LED Aydınlatma",
     "file": "Arsiv/led-projektor-nedir.html"
+  },
+  {
+    "title": "LED Bant Armatür Nedir? Kullanım Alanları, Modelleri ve Çeşitleri",
+    "description": "LED bant armatür nedir, kullanım alanları, modelleri ve çeşitleri hakkında kapsamlı rehber",
+    "date": "2026-05-30",
+    "category": "LED Teknolojileri",
+    "file": "Arsiv/led-bant-armaturler.html"
   }
 ]
