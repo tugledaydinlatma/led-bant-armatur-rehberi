@@ -1,53 +1,205 @@
 <!DOCTYPE html>
-<html lang="tr">
+<html lang="tr" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Yazı - Elektrik Aydınlatma</title>
+    <title>Yazı Okuyucu - Elektrik Aydınlatma</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['Space Grotesk', 'sans-serif'],
+                    },
+                    colors: {
+                        led: {
+                            50: '#fffbeb', 100: '#fef3c7', 200: '#fde68a',
+                            300: '#fcd34d', 400: '#fbbf24', 500: '#f59e0b',
+                            600: '#d97706', 700: '#b45309', 800: '#92400e',
+                            900: '#78350f', 950: '#451a03',
+                        },
+                        dark: {
+                            900: '#0a0a0f', 800: '#12121a', 700: '#1a1a2e',
+                            600: '#242438', 500: '#2e2e42',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
     <style>
-        body { background-color: #0a0a0f; color: #e5e7eb; font-family: 'Inter', sans-serif; }
-        .article-content { max-width: 48rem; margin: 0 auto; padding: 2rem 1rem; }
-        .article-content h1, .article-content h2 { color: #f59e0b; }
-        .article-content img { max-width: 100%; height: auto; }
-        .loading-spinner { border: 3px solid rgba(245,158,11,0.1); border-top: 3px solid #f59e0b; border-radius: 50%; width: 40px; height: 40px; animation: spin 1s linear infinite; margin: 4rem auto; }
+        body { background-color: #0a0a0f; color: #e5e7eb; }
+        .nav-blur { backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); }
+        .article-content { background-color: #12121a; }
+        .article-content h1, .article-content h2, .article-content h3, 
+        .article-content h4, .article-content h5, .article-content h6 {
+            color: #ffffff; margin-top: 1.5rem; margin-bottom: 0.75rem; font-weight: 700;
+        }
+        .article-content h1 { font-size: 2rem; border-bottom: 2px solid rgba(245, 158, 11, 0.3); padding-bottom: 0.75rem; }
+        .article-content h2 { font-size: 1.5rem; color: #f59e0b; }
+        .article-content h3 { font-size: 1.25rem; }
+        .article-content p { line-height: 1.8; margin-bottom: 1rem; color: #d1d5db; }
+        .article-content a { color: #f59e0b; text-decoration: underline; }
+        .article-content a:hover { color: #fbbf24; }
+        .article-content ul, .article-content ol { margin-left: 2rem; margin-bottom: 1rem; }
+        .article-content li { margin-bottom: 0.5rem; color: #d1d5db; }
+        .article-content table { width: 100%; border-collapse: collapse; margin: 1.5rem 0; border: 1px solid rgba(245, 158, 11, 0.2); }
+        .article-content th { background-color: rgba(245, 158, 11, 0.1); color: #f59e0b; padding: 1rem; text-align: left; border: 1px solid rgba(245, 158, 11, 0.2); }
+        .article-content td { padding: 1rem; border: 1px solid rgba(245, 158, 11, 0.1); }
+        .article-content tr:hover { background-color: rgba(245, 158, 11, 0.05); }
+        .article-content blockquote { border-left: 4px solid #f59e0b; padding-left: 1.5rem; margin: 1.5rem 0; color: #9ca3af; font-style: italic; }
+        .article-content code { background-color: rgba(245, 158, 11, 0.1); color: #fbbf24; padding: 0.25rem 0.5rem; border-radius: 0.25rem; font-family: 'Courier New', monospace; }
+        .article-content pre { background-color: rgba(0, 0, 0, 0.5); border: 1px solid rgba(245, 158, 11, 0.2); padding: 1rem; border-radius: 0.5rem; overflow-x: auto; margin: 1.5rem 0; }
+        .article-content pre code { background-color: transparent; color: #fbbf24; padding: 0; }
+        .article-content img { max-width: 100%; height: auto; border-radius: 0.5rem; margin: 1.5rem 0; border: 1px solid rgba(245, 158, 11, 0.2); }
+        .loading-spinner {
+            border: 3px solid rgba(245, 158, 11, 0.1); border-top: 3px solid #f59e0b;
+            border-radius: 50%; width: 40px; height: 40px; animation: spin 1s linear infinite;
+        }
         @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+        .error-debug { background: rgba(239, 68, 68, 0.1); border: 1px solid rgba(239, 68, 68, 0.3); color: #fca5a5; padding: 1rem; border-radius: 0.5rem; margin-top: 1rem; font-family: monospace; font-size: 0.8rem; }
     </style>
 </head>
-<body>
-    <nav style="position: sticky; top: 0; background: rgba(10,10,15,0.9); backdrop-filter: blur(20px); border-bottom: 1px solid rgba(255,255,255,0.05); padding: 1rem;">
-        <div style="max-width: 48rem; margin: 0 auto; display: flex; justify-content: space-between; align-items: center;">
-            <a href="/" style="color: #fbbf24; text-decoration: none; font-weight: 600;">← Ana Sayfa</a>
-            <a href="https://wa.me/905322471280" style="background: #f59e0b; color: #0a0a0f; padding: 0.5rem 1rem; border-radius: 9999px; text-decoration: none; font-weight: 600;">WhatsApp</a>
+<body class="font-sans antialiased">
+    
+    <!-- Navigation -->
+    <nav class="sticky top-0 z-50 nav-blur bg-dark-900/80 border-b border-white/5">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <div class="flex items-center gap-3">
+                    <div class="w-8 h-8 rounded-lg bg-led-500/20 flex items-center justify-center">
+                        <svg class="w-5 h-5 text-led-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                        </svg>
+                    </div>
+                    <span class="font-display font-bold text-lg text-white tracking-tight">
+                        <span class="text-led-400">Elektrik</span> Aydınlatma
+                    </span>
+                </div>
+                <div class="flex items-center gap-4">
+                    <!-- DÜZELTİLDİ: href="/" yerine href="index.html" -->
+                    <a href="index.html" class="px-4 py-2 rounded-full bg-led-500/10 border border-led-500/30 text-led-400 text-sm font-medium hover:bg-led-500/20 transition-all">
+                        ← Ana Sayfa
+                    </a>
+                    <a href="https://wa.me/905322471280" target="_blank" class="px-4 py-2 rounded-full bg-led-500 text-dark-900 font-semibold text-sm hover:bg-led-400 transition-all">
+                        WhatsApp
+                    </a>
+                </div>
+            </div>
         </div>
     </nav>
 
-    <div id="loading"><div class="loading-spinner"></div></div>
-    <div id="error" style="display: none; text-align: center; padding: 4rem; color: #fca5a5;"></div>
-    <div id="content" class="article-content" style="display: none;"></div>
+    <!-- Article Container -->
+    <div class="min-h-screen bg-dark-900">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+            <div id="loading" class="flex justify-center items-center py-20">
+                <div class="loading-spinner"></div>
+            </div>
+            <div id="article-container" class="hidden article-content rounded-lg p-8 md:p-12 bg-dark-800 border border-white/5">
+                <!-- Yazı içeriği buraya yüklenecek -->
+            </div>
+            <div id="error" class="hidden text-center py-20">
+                <p class="text-gray-400 text-lg mb-4">Yazı yüklenemedi!</p>
+                <div id="error-debug" class="error-debug hidden max-w-lg mx-auto mb-6 text-left"></div>
+                <a href="index.html" class="px-6 py-3 rounded-full bg-led-500 text-dark-900 font-semibold hover:bg-led-400 transition-all inline-block">
+                    Ana Sayfaya Dön
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="border-t border-white/5 py-8">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <p class="text-gray-600 text-sm">
+                © 2026 Elektrik Aydınlatma | <a href="tel:05322471280" class="text-led-400 hover:text-led-300">0532 247 1280</a>
+            </p>
+        </div>
+    </footer>
 
     <script>
-        const file = new URLSearchParams(location.search).get('article');
-        
-        if (!file) {
-            document.getElementById('loading').style.display = 'none';
-            document.getElementById('error').style.display = 'block';
-            document.getElementById('error').textContent = 'Makale seçilmedi';
-        } else {
-            fetch(file + '?v=' + Date.now())
-                .then(r => { if (!r.ok) throw new Error('HTTP ' + r.status); return r.text(); })
-                .then(html => {
-                    const body = html.match(/<body[^>]*>([\s\S]*)<\/body>/i);
-                    document.getElementById('content').innerHTML = body ? body[1] : html;
-                    document.getElementById('loading').style.display = 'none';
-                    document.getElementById('content').style.display = 'block';
-                })
-                .catch(err => {
-                    document.getElementById('loading').style.display = 'none';
-                    document.getElementById('error').style.display = 'block';
-                    document.getElementById('error').textContent = 'Yükleme hatası: ' + err.message;
-                });
+        // URL parametresinden makale dosyasını al
+        const params = new URLSearchParams(window.location.search);
+        const articleFile = params.get('article');
+
+        async function loadArticle() {
+            console.log('Yüklenmeye çalışılan dosya:', articleFile);
+
+            if (!articleFile) {
+                showError('Makale parametresi eksik. URL: wrapper.html?article=Arsiv/dosya.html şeklinde olmalı.');
+                return;
+            }
+
+            try {
+                // Cache önlemek için timestamp ekle
+                const timestamp = new Date().getTime();
+                const fileUrl = `${articleFile}?v=${timestamp}`;
+                
+                console.log('Fetch URL:', fileUrl);
+                
+                const response = await fetch(fileUrl);
+                console.log('Response status:', response.status);
+                
+                if (!response.ok) {
+                    throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+                }
+                
+                const html = await response.text();
+                console.log('İçerik uzunluğu:', html.length);
+                
+                if (!html || html.trim().length === 0) {
+                    throw new Error('Dosya boş görünüyor');
+                }
+
+                // Body içeriğini çıkar
+                const bodyMatch = html.match(/<body[^>]*>([\s\S]*)<\/body>/i);
+                let content;
+                
+                if (bodyMatch) {
+                    content = bodyMatch[1];
+                } else {
+                    // Body yoksa tüm HTML'i kullan (head hariç)
+                    content = html.replace(/<head>[\s\S]*?<\/head>/i, '').replace(/<\/?html[^>]*>/gi, '');
+                }
+                
+                // Script ve style etiketlerini temizle (güvenlik)
+                content = content.replace(/<script[\s\S]*?<\/script>/gi, '');
+                content = content.replace(/<style[\s\S]*?<\/style>/gi, '');
+
+                document.getElementById('article-container').innerHTML = content;
+                document.getElementById('loading').classList.add('hidden');
+                document.getElementById('article-container').classList.remove('hidden');
+                window.scrollTo(0, 0);
+
+            } catch (error) {
+                console.error('Hata:', error);
+                showError(`Yazı yüklenirken hata: ${error.message}`);
+            }
         }
+
+        function showError(message) {
+            document.getElementById('loading').classList.add('hidden');
+            document.getElementById('error').classList.remove('hidden');
+            const debugEl = document.getElementById('error-debug');
+            debugEl.classList.remove('hidden');
+            debugEl.textContent = 
+                `${message}\n\n` +
+                `İstenen dosya: ${articleFile || 'belirtilmemiş'}\n\n` +
+                `Çözüm önerileri:\n` +
+                `1. Dosya yolu doğru mu? (örn: Arsiv/yazi.html)\n` +
+                `2. Dosya GitHub'a yüklenmiş mi?\n` +
+                `3. Büyük-küçük harf duyarlılığına dikkat edin\n` +
+                `4. GitHub Pages 1-2 dk içinde güncellenir, bekleyin`;
+        }
+
+        // Sayfa yüklendiğinde makaleyi yükle
+        loadArticle();
     </script>
 </body>
 </html>
