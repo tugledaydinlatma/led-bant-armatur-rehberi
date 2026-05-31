@@ -1,8 +1,12 @@
-<!DOCTYPE html>
+
+# index.html'in head bölümüne Google verification meta tag ekleyelim
+
+index_html = '''<!DOCTYPE html>
 <html lang="tr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="google-site-verification" content="DIeOllmSy5aBiQAXccJPsZHITGWXiuYRTPlvaBWzkP8" />
     <title>LED Aydınlatma Teknolojileri 2026</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -80,4 +84,15 @@
         loadArticles();
     </script>
 </body>
-</html>
+</html>'''
+
+with open('/mnt/agents/output/index.html', 'w', encoding='utf-8') as f:
+    f.write(index_html)
+
+print("✅ index.html güncellendi!")
+print("\n📄 Google verification tag eklendi:")
+print('<meta name="google-site-verification" content="DIeOllmSy5aBiQAXccJPsZHITGWXiuYRTPlvaBWzkP8" />')
+print("\n🚀 Şimdi repoya push et:")
+print("   git add index.html")
+print("   git commit -m 'Google Search Console verification eklendi'")
+print("   git push")
