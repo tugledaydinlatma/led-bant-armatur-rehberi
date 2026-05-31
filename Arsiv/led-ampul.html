@@ -1,5 +1,5 @@
 
-html_content = '''<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="tr">
 <head>
     <meta charset="UTF-8">
@@ -482,22 +482,4 @@ html_content = '''<!DOCTYPE html>
         </div>
     </div>
 </body>
-</html>'''
-
-# Save the file
-with open('/mnt/agents/output/led-ampul.html', 'w', encoding='utf-8') as f:
-    f.write(html_content)
-
-# Count words
-import re
-
-def extract_text(html):
-    html = re.sub(r'<script[^>]*>.*?</script>', ' ', html, flags=re.DOTALL)
-    html = re.sub(r'<style[^>]*>.*?</style>', ' ', html, flags=re.DOTALL)
-    text = re.sub(r'<[^>]+>', ' ', html)
-    text = re.sub(r'\s+', ' ', text).strip()
-    return text
-
-text = extract_text(html_content)
-words = text.split()
-print(f"Final word count: {len(words)}")
+</html>
