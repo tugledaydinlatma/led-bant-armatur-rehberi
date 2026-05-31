@@ -5,6 +5,7 @@ on:
     branches: [ main, master ]
     paths:
       - 'Arsiv/**'
+  workflow_dispatch:
 
 jobs:
   update-articles:
