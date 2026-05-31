@@ -1,6 +1,4 @@
 
-# index.html'in head bölümüne Google verification meta tag ekleyelim
-
 index_html = '''<!DOCTYPE html>
 <html lang="tr">
 <head>
@@ -8,44 +6,57 @@ index_html = '''<!DOCTYPE html>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="google-site-verification" content="DIeOllmSy5aBiQAXccJPsZHITGWXiuYRTPlvaBWzkP8" />
     <title>LED Aydınlatma Teknolojileri 2026</title>
+    <meta name="description" content="LED aydınlatma teknolojileri, tasarım ipuçları ve enerji verimliliği üzerine kapsamlı rehberler.">
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         body { background-color: #0a0a0f; color: #e5e7eb; font-family: 'Inter', sans-serif; }
-        .archive-card { background: linear-gradient(135deg, rgba(26,26,46,0.8) 0%, rgba(18,18,26,0.9) 100%); border: 1px solid rgba(245,158,11,0.1); border-radius: 1rem; padding: 1.5rem; transition: all 0.3s; }
-        .archive-card:hover { border-color: rgba(245,158,11,0.3); transform: translateY(-4px); }
+        .archive-card { background: linear-gradient(135deg, rgba(26,26,46,0.8) 0%, rgba(18,18,26,0.9) 100%); border: 1px solid rgba(245,158,11,0.1); border-radius: 1rem; padding: 1.5rem; transition: all 0.3s; cursor: pointer; }
+        .archive-card:hover { border-color: rgba(245,158,11,0.3); transform: translateY(-4px); box-shadow: 0 10px 40px rgba(245,158,11,0.1); }
         .tag-led { background: rgba(245,158,11,0.1); color: #fbbf24; border: 1px solid rgba(245,158,11,0.2); padding: 0.25rem 0.75rem; border-radius: 9999px; font-size: 0.75rem; }
         .loading-spinner { border: 3px solid rgba(245,158,11,0.1); border-top: 3px solid #f59e0b; border-radius: 50%; width: 40px; height: 40px; animation: spin 1s linear infinite; margin: 2rem auto; }
         @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
         .error-box { background: rgba(239,68,68,0.1); border: 1px solid rgba(239,68,68,0.3); color: #fca5a5; padding: 1rem; border-radius: 0.5rem; margin-top: 1rem; }
+        .hero-glow { background: radial-gradient(ellipse at center, rgba(245,158,11,0.15) 0%, transparent 70%); }
+        .nav-blur { background: rgba(10,10,15,0.85); backdrop-filter: blur(20px); }
     </style>
 </head>
 <body>
-    <nav style="position: fixed; top: 0; left: 0; right: 0; z-index: 50; background: rgba(10,10,15,0.8); backdrop-filter: blur(20px); border-bottom: 1px solid rgba(255,255,255,0.05); padding: 1rem;">
-        <div style="max-width: 80rem; margin: 0 auto; display: flex; align-items: center; justify-content: space-between;">
-            <div style="font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 1.25rem;">
-                <span style="color: #fbbf24;">Elektrik</span> Aydınlatma
+    <nav class="nav-blur fixed top-0 left-0 right-0 z-50 border-b border-white/5">
+        <div class="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
+            <div class="font-['Space_Grotesk'] font-bold text-xl">
+                <span class="text-amber-400">Elektrik</span> Aydınlatma
             </div>
-            <a href="https://wa.me/905322471280" style="background: #f59e0b; color: #0a0a0f; padding: 0.5rem 1rem; border-radius: 9999px; text-decoration: none; font-weight: 600;">WhatsApp</a>
+            <a href="https://wa.me/905322471280" class="bg-amber-500 text-black px-4 py-2 rounded-full font-semibold hover:bg-amber-400 transition">WhatsApp</a>
         </div>
     </nav>
 
-    <div style="padding-top: 5rem; max-width: 80rem; margin: 0 auto; padding-left: 1rem; padding-right: 1rem;">
-        <div style="text-align: center; padding: 4rem 0;">
-            <h1 style="font-family: 'Space Grotesk', sans-serif; font-size: 2.5rem; font-weight: 800; margin-bottom: 1rem;">
-                <span style="color: #fbbf24;">LED Aydınlatma</span> Teknolojileri
+    <div class="pt-20 max-w-7xl mx-auto px-4">
+        <div class="hero-glow text-center py-16 md:py-24">
+            <h1 class="font-['Space_Grotesk'] text-4xl md:text-6xl font-black mb-6">
+                <span class="text-amber-400">LED Aydınlatma</span><br>Teknolojileri
             </h1>
-            <p style="color: #9ca3af; max-width: 32rem; margin: 0 auto 2rem;">LED aydınlatma teknolojileri, tasarım ipuçları ve enerji verimliliği üzerine kapsamlı rehberler.</p>
-            <p id="article-count" style="color: #6b7280;">0 Makale</p>
+            <p class="text-gray-400 max-w-2xl mx-auto mb-8 text-lg">LED aydınlatma teknolojileri, tasarım ipuçları ve enerji verimliliği üzerine kapsamlı rehberler.</p>
+            <p id="article-count" class="text-gray-500 text-sm">0 Makale</p>
         </div>
 
-        <h2 style="font-family: 'Space Grotesk', sans-serif; font-size: 2rem; font-weight: 700; margin-bottom: 1.5rem;">Arşiv</h2>
+        <h2 class="font-['Space_Grotesk'] text-3xl font-bold mb-8 flex items-center gap-3">
+            <span class="w-1 h-8 bg-amber-500 rounded-full"></span>
+            Arşiv
+        </h2>
         
         <div id="loading"><div class="loading-spinner"></div></div>
-        <div id="error" class="error-box" style="display: none;"></div>
-        <div id="archive-grid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.5rem;"></div>
-        <div id="empty" style="display: none; text-align: center; color: #6b7280; padding: 3rem;">Henüz yazı yok.</div>
+        <div id="error" class="error-box hidden"></div>
+        <div id="archive-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 pb-16"></div>
+        <div id="empty" class="hidden text-center text-gray-500 py-12">Henüz yazı yok.</div>
     </div>
+
+    <footer class="border-t border-white/5 py-8 mt-8">
+        <div class="max-w-7xl mx-auto px-4 text-center text-gray-500 text-sm">
+            <p>Elektrik Aydınlatma - LED Aydınlatma Çözümleri ve Teknik Danışmanlık</p>
+            <p class="mt-2"><a href="tel:05322471280" class="text-amber-500 hover:text-amber-400">0532 247 1280</a></p>
+        </div>
+    </footer>
 
     <script>
         async function loadArticles() {
@@ -62,14 +73,16 @@ index_html = '''<!DOCTYPE html>
 
                 const grid = document.getElementById('archive-grid');
                 grid.innerHTML = data.map(article => `
-                    <div class="archive-card" onclick="window.open('wrapper.html?article=${encodeURIComponent(article.file)}', '_blank')">
-                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+                    <div class="archive-card" onclick="window.open('${article.file}', '_blank')">
+                        <div class="flex justify-between items-center mb-4">
                             <span class="tag-led">${article.category || 'Genel'}</span>
-                            <span style="color: #6b7280; font-size: 0.875rem;">${article.date || ''}</span>
+                            <span class="text-gray-500 text-sm">${article.date || ''}</span>
                         </div>
-                        <h3 style="font-size: 1.25rem; font-weight: 700; margin-bottom: 0.5rem; color: white;">${article.title}</h3>
-                        <p style="color: #9ca3af; font-size: 0.875rem; line-height: 1.5;">${article.description || ''}</p>
-                        <div style="margin-top: 1rem; color: #fbbf24; font-size: 0.875rem;">Oku →</div>
+                        <h3 class="text-lg font-bold mb-2 text-white leading-tight">${article.title}</h3>
+                        <p class="text-gray-400 text-sm leading-relaxed line-clamp-3">${article.description || ''}</p>
+                        <div class="mt-4 text-amber-400 text-sm font-medium flex items-center gap-1">
+                            Oku →
+                        </div>
                     </div>
                 `).join('');
 
@@ -77,7 +90,7 @@ index_html = '''<!DOCTYPE html>
                 document.getElementById('article-count').textContent = data.length + ' Makale';
             } catch (err) {
                 document.getElementById('loading').style.display = 'none';
-                document.getElementById('error').style.display = 'block';
+                document.getElementById('error').classList.remove('hidden');
                 document.getElementById('error').textContent = 'Hata: ' + err.message;
             }
         }
@@ -90,9 +103,13 @@ with open('/mnt/agents/output/index.html', 'w', encoding='utf-8') as f:
     f.write(index_html)
 
 print("✅ index.html güncellendi!")
-print("\n📄 Google verification tag eklendi:")
-print('<meta name="google-site-verification" content="DIeOllmSy5aBiQAXccJPsZHITGWXiuYRTPlvaBWzkP8" />')
+print("\n🎨 Yeni özellikler:")
+print("  - Daha şık hero bölümü")
+print("  - Glow efekti")
+print("  - Hover animasyonları")
+print("  - Footer eklendi")
+print("  - Kod temizlendi")
 print("\n🚀 Şimdi repoya push et:")
 print("   git add index.html")
-print("   git commit -m 'Google Search Console verification eklendi'")
+print("   git commit -m 'index.html tasarim guncellendi'")
 print("   git push")
