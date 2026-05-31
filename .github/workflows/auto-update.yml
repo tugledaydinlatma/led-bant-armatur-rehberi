@@ -1,0 +1,39 @@
+name: Auto Update Articles
+
+on:
+  push:
+    branches: [ main, master ]
+    paths:
+      - 'Arsiv/**'
+
+jobs:
+  update-articles:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: Set up Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.11'
+    
+    - name: Install dependencies
+      run: pip install beautifulsoup4
+    
+    - name: Auto-generate articles.json
+      run: python .github/scripts/update_articles.py
+    
+    - name: Commit and push changes
+      run: |
+        git config user.name "github-actions[bot]"
+        git config user.email "github-actions[bot]@users.noreply.github.com"
+        git add articles.json
+        if git diff --cached --quiet; then
+          echo "No changes to commit"
+        else
+          git commit -m "Auto-update articles.json from Arsiv folder"
+          git push
+        fi
