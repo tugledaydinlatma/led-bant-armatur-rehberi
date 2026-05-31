@@ -1,617 +1,83 @@
 <!DOCTYPE html>
-<html lang="tr" class="scroll-smooth">
+<html lang="tr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Led Aydınlatma Teknolojileri 2026</title>
+    <title>LED Aydınlatma Teknolojileri 2026</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <script>
-        tailwind.config = {
-            darkMode: 'class',
-            theme: {
-                extend: {
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                        display: ['Space Grotesk', 'sans-serif'],
-                    },
-                    colors: {
-                        led: {
-                            50: '#fffbeb',
-                            100: '#fef3c7',
-                            200: '#fde68a',
-                            300: '#fcd34d',
-                            400: '#fbbf24',
-                            500: '#f59e0b',
-                            600: '#d97706',
-                            700: '#b45309',
-                            800: '#92400e',
-                            900: '#78350f',
-                            950: '#451a03',
-                        },
-                        dark: {
-                            900: '#0a0a0f',
-                            800: '#12121a',
-                            700: '#1a1a2e',
-                            600: '#242438',
-                            500: '#2e2e42',
-                        }
-                    },
-                    animation: {
-                        'glow': 'glow 2s ease-in-out infinite alternate',
-                        'fade-in-up': 'fadeInUp 0.6s ease-out forwards',
-                        'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
-                    },
-                    keyframes: {
-                        glow: {
-                            '0%': { boxShadow: '0 0 5px rgba(245, 158, 11, 0.3), 0 0 20px rgba(245, 158, 11, 0.1)' },
-                            '100%': { boxShadow: '0 0 20px rgba(245, 158, 11, 0.5), 0 0 40px rgba(245, 158, 11, 0.2)' },
-                        },
-                        fadeInUp: {
-                            '0%': { opacity: '0', transform: 'translateY(30px)' },
-                            '100%': { opacity: '1', transform: 'translateY(0)' },
-                        }
-                    }
-                }
-            }
-        }
-    </script>
     <style>
-        body {
-            background-color: #0a0a0f;
-            color: #e5e7eb;
-        }
-        
-        .led-glow {
-            text-shadow: 0 0 10px rgba(245, 158, 11, 0.5), 0 0 30px rgba(245, 158, 11, 0.3);
-        }
-        
-        .card-glow {
-            transition: all 0.3s ease;
-        }
-        
-        .card-glow:hover {
-            box-shadow: 0 0 20px rgba(245, 158, 11, 0.15), 0 0 40px rgba(245, 158, 11, 0.05);
-            border-color: rgba(245, 158, 11, 0.4);
-        }
-        
-        .scroll-reveal {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.6s ease-out;
-        }
-        
-        .scroll-reveal.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        
-        .archive-card {
-            background: linear-gradient(135deg, rgba(26, 26, 46, 0.8) 0%, rgba(18, 18, 26, 0.9) 100%);
-            border: 1px solid rgba(245, 158, 11, 0.1);
-        }
-        
-        .archive-card:hover {
-            border-color: rgba(245, 158, 11, 0.3);
-            transform: translateY(-2px);
-        }
-        
-        .tag-led {
-            background: rgba(245, 158, 11, 0.1);
-            color: #fbbf24;
-            border: 1px solid rgba(245, 158, 11, 0.2);
-        }
-        
-        .hero-gradient {
-            background: radial-gradient(ellipse at top, rgba(245, 158, 11, 0.08) 0%, transparent 50%),
-                        radial-gradient(ellipse at bottom right, rgba(217, 119, 6, 0.05) 0%, transparent 50%);
-        }
-        
-        .noise-overlay {
-            position: relative;
-        }
-        
-        .noise-overlay::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4'/%3E%3C/filter%3E%3Crect width='256' height='256' filter='url(%23noise)'/%3E%3C/svg%3E");
-            opacity: 0.02;
-            pointer-events: none;
-            z-index: 1;
-        }
-        
-        .nav-blur {
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-        }
-
-        .loading-spinner {
-            border: 3px solid rgba(245, 158, 11, 0.1);
-            border-top: 3px solid #f59e0b;
-            border-radius: 50%;
-            width: 40px;
-            height: 40px;
-            animation: spin 1s linear infinite;
-        }
-
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
+        body { background-color: #0a0a0f; color: #e5e7eb; font-family: 'Inter', sans-serif; }
+        .archive-card { background: linear-gradient(135deg, rgba(26,26,46,0.8) 0%, rgba(18,18,26,0.9) 100%); border: 1px solid rgba(245,158,11,0.1); border-radius: 1rem; padding: 1.5rem; transition: all 0.3s; }
+        .archive-card:hover { border-color: rgba(245,158,11,0.3); transform: translateY(-4px); }
+        .tag-led { background: rgba(245,158,11,0.1); color: #fbbf24; border: 1px solid rgba(245,158,11,0.2); padding: 0.25rem 0.75rem; border-radius: 9999px; font-size: 0.75rem; }
+        .loading-spinner { border: 3px solid rgba(245,158,11,0.1); border-top: 3px solid #f59e0b; border-radius: 50%; width: 40px; height: 40px; animation: spin 1s linear infinite; margin: 2rem auto; }
+        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+        .error-box { background: rgba(239,68,68,0.1); border: 1px solid rgba(239,68,68,0.3); color: #fca5a5; padding: 1rem; border-radius: 0.5rem; margin-top: 1rem; }
     </style>
 </head>
-<body class="font-sans antialiased noise-overlay">
-    
-    <!-- Navigation -->
-    <nav class="fixed top-0 left-0 right-0 z-50 nav-blur bg-dark-900/80 border-b border-white/5">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex items-center justify-between h-16">
-                <div class="flex items-center gap-3">
-                    <div class="w-8 h-8 rounded-lg bg-led-500/20 flex items-center justify-center">
-                        <svg class="w-5 h-5 text-led-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
-                        </svg>
-                    </div>
-                    <span class="font-display font-bold text-xl text-white tracking-tight">
-                        <span class="text-led-400">Elektrik</span> Aydınlatma
-                    </span>
-                </div>
-                <div class="hidden md:flex items-center gap-8">
-                    <a href="#arsiv" class="text-sm text-gray-400 hover:text-led-400 transition-colors">Arşiv</a>
-                    <a href="#hakkimda" class="text-sm text-gray-400 hover:text-led-400 transition-colors">İletişim</a>
-                    <a href="https://wa.me/905322471280" target="_blank" class="px-4 py-2 rounded-full bg-led-500/10 border border-led-500/30 text-led-400 text-sm font-medium hover:bg-led-500/20 transition-all flex items-center gap-2">
-                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.67-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.076 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421-7.403h-.004a9.87 9.87 0 00-4.782 1.149c-1.488.821-2.693 2.053-3.514 3.558-.821 1.505-1.145 3.131-.553 4.771.028.081.058.162.087.242 1.144 3.169 4.076 5.348 7.523 5.348 2.7 0 5.023-1.409 6.342-3.654.299-.529.556-1.089.763-1.664.106-.301.599-1.623.599-3.644 0-4.753-3.769-8.573-8.426-8.573z"/>
-                        </svg>
-                        0532 247 1280
-                    </a>
-                </div>
-                <button class="md:hidden text-gray-400 hover:text-white">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
-                    </svg>
-                </button>
+<body>
+    <nav style="position: fixed; top: 0; left: 0; right: 0; z-index: 50; background: rgba(10,10,15,0.8); backdrop-filter: blur(20px); border-bottom: 1px solid rgba(255,255,255,0.05); padding: 1rem;">
+        <div style="max-width: 80rem; margin: 0 auto; display: flex; align-items: center; justify-content: space-between;">
+            <div style="font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 1.25rem;">
+                <span style="color: #fbbf24;">Elektrik</span> Aydınlatma
             </div>
+            <a href="https://wa.me/905322471280" style="background: #f59e0b; color: #0a0a0f; padding: 0.5rem 1rem; border-radius: 9999px; text-decoration: none; font-weight: 600;">WhatsApp</a>
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <section class="relative pt-32 pb-20 lg:pt-40 lg:pb-32 hero-gradient overflow-hidden">
-        <div class="absolute inset-0 z-0">
-            <div class="absolute top-20 left-1/4 w-72 h-72 bg-led-500/5 rounded-full blur-3xl"></div>
-            <div class="absolute bottom-0 right-1/4 w-96 h-96 bg-led-600/5 rounded-full blur-3xl"></div>
-        </div>
-        
-        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-led-500/10 border border-led-500/20 text-led-400 text-sm mb-8 animate-fade-in-up">
-                <span class="w-2 h-2 rounded-full bg-led-400 animate-pulse"></span>
-                Yeni içerikler her hafta
-            </div>
-            
-            <h1 class="font-display text-5xl md:text-7xl lg:text-8xl font-bold text-white mb-6 leading-tight animate-fade-in-up" style="animation-delay: 0.1s">
-                <span class="text-led-400 led-glow">LED Aydınlatma</span><br>
-                <span class="text-transparent bg-clip-text bg-gradient-to-r from-led-400 to-led-600">Teknolojileri 2026</span>
+    <div style="padding-top: 5rem; max-width: 80rem; margin: 0 auto; padding-left: 1rem; padding-right: 1rem;">
+        <div style="text-align: center; padding: 4rem 0;">
+            <h1 style="font-family: 'Space Grotesk', sans-serif; font-size: 2.5rem; font-weight: 800; margin-bottom: 1rem;">
+                <span style="color: #fbbf24;">LED Aydınlatma</span> Teknolojileri
             </h1>
-            
-            <p class="max-w-2xl mx-auto text-lg md:text-xl text-gray-400 mb-10 leading-relaxed animate-fade-in-up" style="animation-delay: 0.2s">
-                LED aydınlatma teknolojileri, tasarım ipuçları ve enerji verimliliği üzerine 
-                kapsamlı rehberler ve derinlemesine analizler.
-            </p>
-            
-            <div class="flex flex-col sm:flex-row items-center justify-center gap-4 animate-fade-in-up" style="animation-delay: 0.3s">
-                <a href="#arsiv" class="px-8 py-4 rounded-full bg-led-500 text-dark-900 font-semibold text-lg hover:bg-led-400 transition-all hover:shadow-lg hover:shadow-led-500/25">
-                    Yazıları Keşfet
-                </a>
-                <a href="#arsiv" class="px-8 py-4 rounded-full border border-white/20 text-white font-semibold text-lg hover:bg-white/5 transition-all">
-                    Arşive Git
-                </a>
-            </div>
-            
-            <div class="mt-16 flex items-center justify-center gap-8 text-gray-500 text-sm">
-                <div class="flex items-center gap-2">
-                    <svg class="w-5 h-5 text-led-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                    </svg>
-                    <span id="article-count">0 Makale</span>
-                </div>
-                <div class="flex items-center gap-2">
-                    <svg class="w-5 h-5 text-led-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                    </svg>
-                    <span>Haftalık Güncel</span>
-                </div>
-                <div class="flex items-center gap-2">
-                    <svg class="w-5 h-5 text-led-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 0a3 3 0 11-6 0 3 3 0 016 0z"/>
-                    </svg>
-                    <span>1000+ Okuyucu</span>
-                </div>
-            </div>
+            <p style="color: #9ca3af; max-width: 32rem; margin: 0 auto 2rem;">LED aydınlatma teknolojileri, tasarım ipuçları ve enerji verimliliği üzerine kapsamlı rehberler.</p>
+            <p id="article-count" style="color: #6b7280;">0 Makale</p>
         </div>
-    </section>
 
-    <!-- Arşiv Bölümü -->
-    <section id="arsiv" class="py-20 relative">
-        <div class="absolute inset-0 bg-gradient-to-b from-transparent via-led-500/3 to-transparent"></div>
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <div class="flex flex-col md:flex-row md:items-end md:justify-between mb-12 scroll-reveal">
-                <div>
-                    <h2 class="font-display text-4xl md:text-5xl font-bold text-white mb-4">
-                        Arşiv
-                    </h2>
-                    <p class="text-gray-400 text-lg max-w-xl">
-                        Tüm yazılarımı keşfet. Arsiv klasöründeki dosyalardan otomatik olarak yüklenir.
-                    </p>
-                </div>
-                <div class="mt-6 md:mt-0 flex items-center gap-3">
-                    <div class="relative">
-                        <input type="text" id="search-input" placeholder="Ara..." class="pl-10 pr-4 py-3 rounded-xl bg-dark-800 border border-white/10 text-white placeholder-gray-500 focus:outline-none focus:border-led-500/50 transition-all">
-                        <svg class="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
-                        </svg>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Loading State -->
-            <div id="loading-state" class="flex justify-center items-center py-12">
-                <div class="loading-spinner"></div>
-            </div>
-
-            <!-- Arşiv Grid -->
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="archive-grid">
-                <!-- İçerik buraya yüklenecek -->
-            </div>
-            
-            <!-- Empty State -->
-            <div id="empty-state" class="hidden text-center py-12">
-                <p class="text-gray-400 text-lg">Henüz yazı eklenmemiş. Arsiv klasöründe HTML dosyaları oluşturmaya başlayın!</p>
-            </div>
-            
-            <!-- Daha Fazla Yükle -->
-            <div class="text-center mt-12 scroll-reveal hidden" id="load-more-container">
-                <button id="load-more-btn" class="px-8 py-4 rounded-full border border-white/20 text-white font-medium hover:bg-white/5 transition-all inline-flex items-center gap-2">
-                    Daha Fazla Göster
-                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
-                    </svg>
-                </button>
-            </div>
-        </div>
-    </section>
-
-    <!-- İletişim Bölümü -->
-    <section id="hakkimda" class="py-20 relative">
-        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="relative rounded-3xl bg-dark-800 border border-white/5 p-8 md:p-12 overflow-hidden scroll-reveal">
-                <div class="absolute top-0 right-0 w-64 h-64 bg-led-500/5 rounded-full blur-3xl"></div>
-                <div class="absolute bottom-0 left-0 w-48 h-48 bg-led-600/5 rounded-full blur-3xl"></div>
-                
-                <div class="relative z-10 text-center">
-                    <div class="w-20 h-20 rounded-2xl bg-led-500/20 flex items-center justify-center mx-auto mb-6">
-                        <svg class="w-10 h-10 text-led-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
-                        </svg>
-                    </div>
-                    <h2 class="font-display text-3xl md:text-4xl font-bold text-white mb-4">
-                        Bize Ulaşın
-                    </h2>
-                    <p class="text-gray-400 mb-8 max-w-lg mx-auto">
-                        LED aydınlatma teknolojileri hakkında sorularınız mı var? Elektrik Aydınlatma olarak size yardımcı olmaktan mutluyuz.
-                    </p>
-                    
-                    <div class="flex flex-col sm:flex-row items-center justify-center gap-6 mb-8">
-                        <a href="tel:05322471280" class="flex items-center gap-3 px-8 py-4 rounded-xl bg-led-500 text-dark-900 font-semibold hover:bg-led-400 transition-all hover:shadow-lg hover:shadow-led-500/25">
-                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
-                            </svg>
-                            0532 247 1280
-                        </a>
-                        <a href="https://wa.me/905322471280" target="_blank" class="flex items-center gap-3 px-8 py-4 rounded-xl border border-white/20 text-white font-semibold hover:bg-white/5 transition-all">
-                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-                                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.67-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.076 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421-7.403h-.004a9.87 9.87 0 00-4.782 1.149c-1.488.821-2.693 2.053-3.514 3.558-.821 1.505-1.145 3.131-.553 4.771.028.081.058.162.087.242 1.144 3.169 4.076 5.348 7.523 5.348 2.7 0 5.023-1.409 6.342-3.654.299-.529.556-1.089.763-1.664.106-.301.599-1.623.599-3.644 0-4.753-3.769-8.573-8.426-8.573z"/>
-                            </svg>
-                            WhatsApp
-                        </a>
-                    </div>
-                    
-                    <p class="text-gray-500 text-sm">
-                        <strong>Elektrik Aydınlatma</strong><br>
-                        LED Aydınlatma Çözümleri ve Teknik Danışmanlık<br>
-                        Telefon: <a href="tel:05322471280" class="text-led-400 hover:text-led-300">0532 247 1280</a>
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="border-t border-white/5 py-12">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex flex-col md:flex-row items-center justify-between gap-6">
-                <div class="flex items-center gap-3">
-                    <div class="w-8 h-8 rounded-lg bg-led-500/20 flex items-center justify-center">
-                        <svg class="w-5 h-5 text-led-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
-                        </svg>
-                    </div>
-                    <span class="font-display font-bold text-lg text-white">
-                        <span class="text-led-400">Elektrik</span> Aydınlatma
-                    </span>
-                </div>
-                
-                <div class="flex items-center gap-6 text-gray-500 text-sm">
-                    <a href="tel:05322471280" class="hover:text-led-400 transition-colors">Telefon</a>
-                    <a href="https://wa.me/905322471280" target="_blank" class="hover:text-led-400 transition-colors">WhatsApp</a>
-                    <a href="https://github.com" target="_blank" class="hover:text-led-400 transition-colors">GitHub</a>
-                </div>
-                
-                <p class="text-gray-600 text-sm text-center">
-                    © 2026 Elektrik Aydınlatma. Tüm hakları saklıdır.<br>
-                    <a href="tel:05322471280" class="text-led-400 hover:text-led-300">0532 247 1280</a>
-                </p>
-            </div>
-        </div>
-    </footer>
+        <h2 style="font-family: 'Space Grotesk', sans-serif; font-size: 2rem; font-weight: 700; margin-bottom: 1.5rem;">Arşiv</h2>
+        
+        <div id="loading"><div class="loading-spinner"></div></div>
+        <div id="error" class="error-box" style="display: none;"></div>
+        <div id="archive-grid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.5rem;"></div>
+        <div id="empty" style="display: none; text-align: center; color: #6b7280; padding: 3rem;">Henüz yazı yok.</div>
+    </div>
 
     <script>
-        // Scroll Reveal Animation
-        const observerOptions = {
-            root: null,
-            rootMargin: '0px',
-            threshold: 0.1
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
-            });
-        }, observerOptions);
-
-        document.querySelectorAll('.scroll-reveal').forEach(el => {
-            observer.observe(el);
-        });
-
-        // Smooth scroll for navigation links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
-
-        // Navbar scroll effect
-        let lastScroll = 0;
-        const nav = document.querySelector('nav');
-        
-        window.addEventListener('scroll', () => {
-            const currentScroll = window.pageYOffset;
-            
-            if (currentScroll > 100) {
-                nav.classList.add('bg-dark-900/95');
-            } else {
-                nav.classList.remove('bg-dark-900/95');
-            }
-            
-            lastScroll = currentScroll;
-        });
-
-        // Arşiv klasöründen yazıları yükle
-        let allArticles = [];
-        let displayedArticles = 0;
-        const articlesPerPage = 6;
-
-        async function loadArchiveArticles() {
+        async function loadArticles() {
             try {
-                const response = await fetch('https://api.github.com/repos/tugledaydinlatma/led-bant-armatur-rehberi/contents/Arsiv');
-                const files = await response.json();
+                const response = await fetch('articles.json?v=' + Date.now());
+                if (!response.ok) throw new Error('HTTP ' + response.status);
+                const data = await response.json();
                 
-                if (!Array.isArray(files)) {
-                    document.getElementById('empty-state').classList.remove('hidden');
-                    document.getElementById('loading-state').classList.add('hidden');
+                if (!Array.isArray(data) || data.length === 0) {
+                    document.getElementById('loading').style.display = 'none';
+                    document.getElementById('empty').style.display = 'block';
                     return;
                 }
 
-                allArticles = [];
+                const grid = document.getElementById('archive-grid');
+                grid.innerHTML = data.map(article => `
+                    <div class="archive-card" onclick="window.open('wrapper.html?article=${encodeURIComponent(article.file)}', '_blank')">
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+                            <span class="tag-led">${article.category || 'Genel'}</span>
+                            <span style="color: #6b7280; font-size: 0.875rem;">${article.date || ''}</span>
+                        </div>
+                        <h3 style="font-size: 1.25rem; font-weight: 700; margin-bottom: 0.5rem; color: white;">${article.title}</h3>
+                        <p style="color: #9ca3af; font-size: 0.875rem; line-height: 1.5;">${article.description || ''}</p>
+                        <div style="margin-top: 1rem; color: #fbbf24; font-size: 0.875rem;">Oku →</div>
+                    </div>
+                `).join('');
 
-                for (const file of files) {
-                    if (file.type === 'file' && file.name.endsWith('.html')) {
-                        try {
-                            const fileContent = await fetch(file.download_url).then(r => r.text());
-                            
-                            // HTML'den başlık, açıklama ve diğer bilgileri çıkar
-                            const titleMatch = fileContent.match(/<title[^>]*>([^<]+)<\/title>/i);
-                            const title = titleMatch ? titleMatch[1].trim() : file.name.replace('.html', '');
-                            
-                            // Meta açıklama ara
-                            const descMatch = fileContent.match(/<meta\s+name="description"\s+content="([^"]+)"/i);
-                            const description = descMatch ? descMatch[1] : 'Yazı açıklaması';
-                            
-                            // Tarih meta etiketi ara
-                            const dateMatch = fileContent.match(/<meta\s+name="date"\s+content="([^"]+)"/i);
-                            const date = dateMatch ? dateMatch[1] : new Date().toLocaleDateString('tr-TR');
-                            
-                            // Kategori meta etiketi ara
-                            const categoryMatch = fileContent.match(/<meta\s+name="category"\s+content="([^"]+)"/i);
-                            const category = categoryMatch ? categoryMatch[1] : 'LED Teknolojileri';
-                            
-                            // Okuma süresi tahmini (kelime sayısına göre)
-                            const wordCount = fileContent.split(/\s+/).length;
-                            const readingTime = Math.ceil(wordCount / 200);
-
-                            allArticles.push({
-                                title,
-                                description,
-                                date,
-                                category,
-                                readingTime,
-                                fileName: file.name,
-                                url: file.html_url
-                            });
-                        } catch (error) {
-                            console.log(`Dosya yüklenemedi: ${file.name}`, error);
-                        }
-                    }
-                }
-
-                // Tarihe göre sırala (yeni yazılar önce)
-                allArticles.sort((a, b) => new Date(b.date) - new Date(a.date));
-
-                document.getElementById('loading-state').classList.add('hidden');
-                
-                if (allArticles.length === 0) {
-                    document.getElementById('empty-state').classList.remove('hidden');
-                } else {
-                    document.getElementById('empty-state').classList.add('hidden');
-                    displayArticles();
-                    updateArticleCount();
-                }
-            } catch (error) {
-                console.error('Arşiv yüklenemedi:', error);
-                document.getElementById('loading-state').classList.add('hidden');
-                document.getElementById('empty-state').classList.remove('hidden');
+                document.getElementById('loading').style.display = 'none';
+                document.getElementById('article-count').textContent = data.length + ' Makale';
+            } catch (err) {
+                document.getElementById('loading').style.display = 'none';
+                document.getElementById('error').style.display = 'block';
+                document.getElementById('error').textContent = 'Hata: ' + err.message;
             }
         }
-
-        function displayArticles() {
-            const grid = document.getElementById('archive-grid');
-            const toDisplay = allArticles.slice(0, displayedArticles + articlesPerPage);
-            
-            grid.innerHTML = toDisplay.map((article, index) => {
-                const colorClasses = [
-                    { tag: 'rgba(245, 158, 11, 0.1)', text: '#fbbf24' },
-                    { tag: 'rgba(59, 130, 246, 0.1)', text: '#60a5fa' },
-                    { tag: 'rgba(34, 197, 94, 0.1)', text: '#4ade80' },
-                    { tag: 'rgba(168, 85, 247, 0.1)', text: '#c084fc' },
-                    { tag: 'rgba(249, 115, 22, 0.1)', text: '#fb923c' },
-                ];
-                const colors = colorClasses[index % colorClasses.length];
-                
-                // Yazı dosyasını wrapper ile aç
-                const wrapperUrl = `wrapper.html?article=${encodeURIComponent(article.url)}`;
-                
-                return `
-                    <article class="archive-card rounded-2xl p-6 scroll-reveal group cursor-pointer hover:scale-105 transition-transform" onclick="window.open('${wrapperUrl}', '_blank')">
-                        <div class="flex items-start justify-between mb-4">
-                            <span class="tag-led px-3 py-1 rounded-full text-xs font-medium" style="background: ${colors.tag}; color: ${colors.text}; border-color: ${colors.tag};">
-                                ${article.category}
-                            </span>
-                            <span class="text-gray-600 text-sm">${article.date}</span>
-                        </div>
-                        <h3 class="font-display text-xl font-bold text-white mb-3 group-hover:text-led-400 transition-colors">
-                            ${article.title}
-                        </h3>
-                        <p class="text-gray-400 text-sm leading-relaxed mb-4 line-clamp-2">
-                            ${article.description}
-                        </p>
-                        <div class="flex items-center justify-between">
-                            <div class="flex items-center gap-2">
-                                <div class="w-6 h-6 rounded-full bg-led-500/20 flex items-center justify-center">
-                                    <span class="text-xs text-led-400 font-bold">📄</span>
-                                </div>
-                                <span class="text-gray-500 text-sm">${article.readingTime} dk okuma</span>
-                            </div>
-                            <span class="text-led-400 text-sm font-medium opacity-0 group-hover:opacity-100 transition-opacity">Oku →</span>
-                        </div>
-                    </article>
-                `;
-            }).join('');
-
-            displayedArticles = toDisplay.length;
-            
-            // "Daha Fazla Göster" butonunu kontrol et
-            if (displayedArticles < allArticles.length) {
-                document.getElementById('load-more-container').classList.remove('hidden');
-            } else {
-                document.getElementById('load-more-container').classList.add('hidden');
-            }
-
-            // Scroll reveal'ları gözlemle
-            document.querySelectorAll('.scroll-reveal').forEach(el => {
-                observer.observe(el);
-            });
-        }
-
-        function updateArticleCount() {
-            document.getElementById('article-count').textContent = `${allArticles.length}+ Makale`;
-        }
-
-        // Arama
-        document.getElementById('search-input').addEventListener('input', (e) => {
-            const searchTerm = e.target.value.toLowerCase();
-            const filtered = allArticles.filter(article =>
-                article.title.toLowerCase().includes(searchTerm) ||
-                article.description.toLowerCase().includes(searchTerm) ||
-                article.category.toLowerCase().includes(searchTerm)
-            );
-
-            if (filtered.length === 0) {
-                document.getElementById('archive-grid').innerHTML = '<p class="col-span-full text-center text-gray-400">Sonuç bulunamadı</p>';
-            } else {
-                displayFiltered(filtered);
-            }
-        });
-
-        function displayFiltered(filtered) {
-            const grid = document.getElementById('archive-grid');
-            grid.innerHTML = filtered.map((article, index) => {
-                const colorClasses = [
-                    { tag: 'rgba(245, 158, 11, 0.1)', text: '#fbbf24' },
-                    { tag: 'rgba(59, 130, 246, 0.1)', text: '#60a5fa' },
-                    { tag: 'rgba(34, 197, 94, 0.1)', text: '#4ade80' },
-                    { tag: 'rgba(168, 85, 247, 0.1)', text: '#c084fc' },
-                    { tag: 'rgba(249, 115, 22, 0.1)', text: '#fb923c' },
-                ];
-                const colors = colorClasses[index % colorClasses.length];
-                
-                const wrapperUrl = `wrapper.html?article=${encodeURIComponent(article.url)}`;
-                
-                return `
-                    <article class="archive-card rounded-2xl p-6 scroll-reveal group cursor-pointer hover:scale-105 transition-transform" onclick="window.open('${wrapperUrl}', '_blank')">
-                        <div class="flex items-start justify-between mb-4">
-                            <span class="tag-led px-3 py-1 rounded-full text-xs font-medium" style="background: ${colors.tag}; color: ${colors.text}; border-color: ${colors.tag};">
-                                ${article.category}
-                            </span>
-                            <span class="text-gray-600 text-sm">${article.date}</span>
-                        </div>
-                        <h3 class="font-display text-xl font-bold text-white mb-3 group-hover:text-led-400 transition-colors">
-                            ${article.title}
-                        </h3>
-                        <p class="text-gray-400 text-sm leading-relaxed mb-4 line-clamp-2">
-                            ${article.description}
-                        </p>
-                        <div class="flex items-center justify-between">
-                            <div class="flex items-center gap-2">
-                                <div class="w-6 h-6 rounded-full bg-led-500/20 flex items-center justify-center">
-                                    <span class="text-xs text-led-400 font-bold">📄</span>
-                                </div>
-                                <span class="text-gray-500 text-sm">${article.readingTime} dk okuma</span>
-                            </div>
-                            <span class="text-led-400 text-sm font-medium opacity-0 group-hover:opacity-100 transition-opacity">Oku →</span>
-                        </div>
-                    </article>
-                `;
-            }).join('');
-        }
-
-        // Daha Fazla Göster butonu
-        document.getElementById('load-more-btn')?.addEventListener('click', () => {
-            displayArticles();
-        });
-
-        // Sayfa yüklendiğinde arşivi yükle
-        loadArchiveArticles();
+        loadArticles();
     </script>
 </body>
 </html>
