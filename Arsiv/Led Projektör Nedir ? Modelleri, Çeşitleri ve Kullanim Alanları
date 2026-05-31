@@ -1,1 +1,272 @@
 
+html_content = '''<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LED Projektör Nedir? Kullanım Alanları, Modelleri ve Çeşitleri</title>
+    <meta name="description" content="LED projektör nedir, kullanım alanları, modelleri ve çeşitleri hakkında kapsamlı rehber">
+    <meta name="date" content="2026-05-31">
+    <meta name="category" content="LED Aydınlatma">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; background: #0a0a0f; color: #e5e7eb; line-height: 1.8; }
+        .container { max-width: 800px; margin: 0 auto; padding: 2rem 1rem; }
+        h1 { color: #fbbf24; font-size: 2.5rem; font-weight: 800; margin-bottom: 1rem; }
+        h2 { color: #f59e0b; font-size: 1.75rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 1rem; border-bottom: 2px solid rgba(245, 158, 11, 0.3); padding-bottom: 0.5rem; }
+        h3 { color: #fcd34d; font-size: 1.25rem; font-weight: 600; margin-top: 2rem; margin-bottom: 0.75rem; }
+        p { margin-bottom: 1rem; color: #d1d5db; }
+        a { color: #f59e0b; text-decoration: underline; }
+        a:hover { color: #fbbf24; }
+        table { width: 100%; border-collapse: collapse; margin: 1.5rem 0; border: 1px solid rgba(245, 158, 11, 0.2); }
+        th { background: rgba(245, 158, 11, 0.1); color: #fbbf24; padding: 0.75rem; text-align: left; border: 1px solid rgba(245, 158, 11, 0.2); font-weight: 600; }
+        td { padding: 0.75rem; border: 1px solid rgba(245, 158, 11, 0.1); color: #d1d5db; }
+        tr:hover { background: rgba(245, 158, 11, 0.05); }
+        ul, ol { margin-left: 1.5rem; margin-bottom: 1rem; }
+        li { margin-bottom: 0.5rem; color: #d1d5db; }
+        strong { color: #fbbf24; }
+        hr { border: 0; border-top: 1px solid rgba(245, 158, 11, 0.2); margin: 2rem 0; }
+        @media (max-width: 640px) {
+            .table-wrapper { overflow-x: auto; }
+            h1 { font-size: 1.75rem; }
+            h2 { font-size: 1.35rem; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>LED Projektör Nedir? Kullanım Alanları, Modelleri ve Çeşitleri</h1>
+        
+        <p>Aydınlatma teknolojisinde son yılların en dikkat çekici ürünlerinden biri olan <strong>LED projektör</strong>, geniş alanları güçlü ve homojen bir şekilde aydınlatan, enerji verimliliği yüksek aydınlatma armatürleridir. Geleneksel halojen ve metal halide projektörlere kıyasla çok daha düşük enerji tüketimi, uzun ömür ve minimum bakım gereksinimi sunar. Peki, <a href="https://ledlamba.com/urun-kategori/led-projektor/">LED projektör</a> tam olarak nedir, hangi alanlarda kullanılır ve hangi modelleri vardır? İşte tüm detaylar.</p>
+
+        <hr>
+
+        <h2>LED Projektör Nedir?</h2>
+        <p>LED projektör, içerisindeki LED çipler aracılığıyla yüksek ışık çıkışı sağlayan, geniş açılı ve yoğun aydınlatma sunan dış mekân ve iç mekân aydınlatma ürünleridir. Alüminyum gövde yapısı sayesinde ısıyı etkili bir şekilde dağıtır ve LED çiplerin ömrünü uzatır. Reflektör ve lens sistemleri ile ışık, hedeflenen alana odaklanarak verimlilik artırılır. Farklı güç seçenekleri (10W'tan 500W'a kadar), renk sıcaklıkları ve koruması sınıfları ile her türlü aydınlatma ihtiyacına cevap verir.</p>
+
+        <p>Modern LED projektörler, akıllı sürücü sistemleri sayesinde titreşimsiz ve sabit ışık sağlar. Bu özellik, özellikle spor sahaları, stüdyolar ve güvenlik kameralarının bulunduğu alanlarda büyük önem taşır. Ayrıca birçok modelde hareket sensörü, uzaktan kumanda ve akıllı ev sistemleri ile entegrasyon imkanı bulunur. Günümüzde LED projektör teknolojisi, hem ticari hem de konut alanlarında standart bir aydınlatma çözümü haline gelmiştir.</p>
+
+        <hr>
+
+        <h2>LED Projektör Kullanım Alanları</h2>
+        <p>LED projektörler oldukça geniş bir kullanım yelpazesine sahiptir. Ev bahçelerinden endüstriyel tesislere kadar her ortamda etkili aydınlatma sunar. İşte en yaygın kullanım alanları:</p>
+        
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Kullanım Alanı</th>
+                        <th>Açıklama</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Bahçe ve Peyzaj</strong></td>
+                        <td>Ağaç, çalı, havuz ve bahçe yollarının estetik aydınlatması. Sıcak beyaz tonlar romantik bir atmosfer yaratır.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Bina Cepheleri</strong></td>
+                        <td>Tarihi yapıların, otellerin ve ticari binaların dış cephe aydınlatması. Mimari detayları öne çıkarır.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Otopark ve Garaj</strong></td>
+                        <td>Geniş alanların güvenli ve homojen aydınlatması. Hareket sensörlü modeller enerji tasarrufu sağlar.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Depo ve Antrepo</strong></td>
+                        <td>Yüksek tavanlı ve geniş alanların verimli aydınlatması. Uzun ömür ve düşük bakım maliyeti avantajı sunar.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Şantiye ve İnşaat</strong></td>
+                        <td>Gece çalışmaları için yüksek güçlü, sağlam ve taşınabilir projektörler. Darbeye dayanıklı modeller tercih edilir.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Spor Sahaları</strong></td>
+                        <td>Halı saha, tenis kortu ve basketbol sahası aydınlatması. Titreşimsiz ve homojen ışık sporcuların performansını artırır.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Güvenlik ve Kamera Aydınlatması</strong></td>
+                        <td>Gece görüşlü kamera sistemleri için optimize edilmiş beyaz ışık. Suç önleme ve alan gözetimi amacıyla kullanılır.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Ticari ve Endüstriyel Alanlar</strong></td>
+                        <td>Fuar alanları, fabrika üretim hatları, lojistik merkezleri ve alışveriş merkezlerinin genel aydınlatması.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <hr>
+
+        <h2>LED Projektör Modelleri ve Çeşitleri</h2>
+        <p>LED projektörler ihtiyaca göre farklı özelliklerde üretilir. Teknik özellikler, tasarım ve kullanım amacına göre çeşitlenir. İşte en yaygın modeller ve çeşitler:</p>
+
+        <h3>1. Standart LED Projektörler</h3>
+        <p>En çok bilinen ve tercih edilen modellerdir. 10W'tan 500W'a kadar farklı güç seçenekleri sunar. Bahçe, bina cephesi, otopark gibi genel aydınlatma ihtiyaçları için idealdir. IP65 ve üzeri koruması olan modeller dış mekânda güvenle kullanılabilir. Standart modellerde genellikle 120° ışık açısı bulunur ve bu sayede geniş alanlar tek bir noktadan homojen şekilde aydınlatılabilir. Fiyat-performans açısından en çok tercih edilen kategoridir.</p>
+
+        <h3>2. Ultra İnce (Slim) LED Projektörler</h3>
+        <p>Geleneksel projektörlere göre çok daha ince ve hafif yapıya sahiptir. Modern tasarımlı binaların cephelerinde estetik görünüm sağlar. Montajı kolaydır ve rüzgâra karşı daha az direnç oluşturur. Genellikle 10W-200W arası güç seçenekleri bulunur. Özellikle dar alanlarda ve estetik kaygının ön planda olduğu projelerde tercih edilir. Sıva altı veya gizli montaj imkanı da sunar.</p>
+
+        <h3>3. Lineer LED Projektörler</h3>
+        <p>Dikdörtgen ve uzun yapısıyla bina cephelerinde sürekli ve homojen aydınlatma sağlar. Yıkama ışığı (wall washer) etkisi yaratır. Otel, alışveriş merkezi ve önemli yapıların dış cephe aydınlatmasında sıkça kullanılır. RGB ve RGBW seçenekleri ile renkli aydınlatma imkanı sunar. Köprüler, anıtlar ve tarihi yapıların vurgulanmasında etkileyici sonuçlar verir. Sürekli çizgi ışığı ile mimari detayları belirginleştirir.</p>
+
+        <h3>4. Yüksek Kule (High Mast) LED Projektörler</h3>
+        <p>Stadyum, liman, havaalanı ve geniş açık alanlar için özel olarak tasarlanmış, çok yüksek güçlü (300W-1000W+) modellerdir. Özel lens sistemleri ile uzak mesafelere yoğun ışık gönderir. Genellikle 15-40 metre yüksekliğindeki direklere monte edilir. Bu modellerde ışık kirliliğini önlemek için özel kesiciler ve yönlendirme lensleri kullanılır. Uluslararası spor federasyonlarının standartlarına uygun modeller mevcuttur.</p>
+
+        <h3>5. Taşınabilir (Tripod) LED Projektörler</h3>
+        <p>Şantiye, inşaat, acil durum ve geçici aydınlatma ihtiyaçları için tripod ayaklı, taşınabilir modellerdir. Genellikle 50W-200W arası güçtedir. Darbeye dayanıklı kasası ve uzun kablosu ile zorlu şartlarda çalışmaya uygundur. Çoğu modelde ayarlanabilir ışık açısı ve taşıma sapı bulunur. Bazı modellerde şarj edilebilir batarya seçeneği de mevcuttur.</p>
+
+        <h3>6. Sensörlü LED Projektörler</h3>
+        <p>Üzerinde hareket (PIR) veya karanlık sensörü bulunan akıllı modellerdir. Ortamda hareket algılandığında otomatik olarak yanar ve belirli bir süre sonra kapanır. Otopark, depo, bahçe ve güvenlik aydınlatmasında enerji tasarrufu sağlar. Bazı modellerde günışığı sensörü de bulunur ve gün boyunca otomatik olarak kapalı kalır. Bu sayede gereksiz enerji tüketimi önlenir.</p>
+
+        <h3>7. RGB ve Akıllı LED Projektörler</h3>
+        <p>Uzaktan kumanda veya mobil uygulama ile kontrol edilebilen, milyonlarca renk seçeneği sunan modellerdir. Özellikle dekoratif aydınlatma, etkinlik alanları ve tematik mekânlar için tercih edilir. Müzik senkronizasyonu özelliği olan modeller de bulunmaktadır. Akıllı ev sistemleri ile entegre çalışarak programlanabilir senaryolar oluşturulabilir. Zamanlayıcı ve dimmer özellikleri ile ışık yoğunluğu ayarlanabilir.</p>
+
+        <h3>8. Patlamaya Dayanıklı (Ex-proof) LED Projektörler</h3>
+        <p>Petrol rafinerileri, kimya tesisleri, maden ocakları ve patlayıcı ortamlarda kullanılan özel sertifikalı modellerdir. ATEX ve IECEx sertifikalarına sahiptir. Yüksek güvenlik standartlarına uygun olarak üretilir. Paslanmaz çelik gövde ve özel conta sistemleri ile gaz ve toz patlamalarına karşı koruma sağlar. Yüksek sıcaklık ve aşırı nem koşullarında bile güvenle çalışır.</p>
+
+        <hr>
+
+        <h2>LED Projektör Güç ve Watt Karşılaştırma Tablosu</h2>
+        <p>Aşağıdaki tablo, farklı güçlerdeki <a href="https://ledlamba.com/urun-kategori/led-projektor/">LED projektör</a> modellerinin temel özelliklerini karşılaştırmaktadır:</p>
+
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Özellik</th>
+                        <th>50W</th>
+                        <th>100W</th>
+                        <th>150W</th>
+                        <th>200W</th>
+                        <th>300W+</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Lümen Çıkışı</strong></td>
+                        <td>4.500 - 5.500 lm</td>
+                        <td>9.000 - 11.000 lm</td>
+                        <td>13.500 - 16.500 lm</td>
+                        <td>18.000 - 22.000 lm</td>
+                        <td>27.000+ lm</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Aydınlatma Alanı</strong></td>
+                        <td>25 - 40 m²</td>
+                        <td>50 - 80 m²</td>
+                        <td>75 - 120 m²</td>
+                        <td>100 - 160 m²</td>
+                        <td>150+ m²</td>
+                    </tr>
+                    <tr>
+                        <td><strong>En Uygun Alan</strong></td>
+                        <td>Bahçe, Küçük Otopark</td>
+                        <td>Bina Cephesi, Orta Otopark</td>
+                        <td>Depo, Şantiye</td>
+                        <td>Spor Sahası, Büyük Depo</td>
+                        <td>Stadyum, Liman</td>
+                    </tr>
+                    <tr>
+                        <td><strong>IP Koruması</strong></td>
+                        <td>IP65 - IP66</td>
+                        <td>IP65 - IP66</td>
+                        <td>IP65 - IP67</td>
+                        <td>IP65 - IP67</td>
+                        <td>IP66 - IP68</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Renk Sıcaklığı</strong></td>
+                        <td>3000K - 6500K</td>
+                        <td>3000K - 6500K</td>
+                        <td>4000K - 6500K</td>
+                        <td>4000K - 6500K</td>
+                        <td>4000K - 5700K</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Ortalama Ömür</strong></td>
+                        <td>30.000 - 50.000 saat</td>
+                        <td>30.000 - 50.000 saat</td>
+                        <td>50.000 saat</td>
+                        <td>50.000 saat</td>
+                        <td>50.000 - 100.000 saat</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Montaj Yüksekliği</strong></td>
+                        <td>2 - 4 metre</td>
+                        <td>3 - 6 metre</td>
+                        <td>4 - 8 metre</td>
+                        <td>5 - 12 metre</td>
+                        <td>10 - 40 metre</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Fiyat Aralığı</strong></td>
+                        <td>Düşük</td>
+                        <td>Düşük - Orta</td>
+                        <td>Orta</td>
+                        <td>Orta - Yüksek</td>
+                        <td>Yüksek</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <hr>
+
+        <h2>LED Projektör Seçerken Nelere Dikkat Etmelisiniz?</h2>
+        <p>Doğru ürünü seçmek için şu kriterlere göz atmanızı öneririz. Her bir kriter, hem performans hem de maliyet açısından önemli rol oynar:</p>
+        
+        <ol>
+            <li><strong>Aydınlatılacak Alanın Büyüklüğü:</strong> Küçük bahçeler için 30W-50W, orta ölçekli otoparklar için 100W-150W, geniş spor sahaları için 200W ve üzeri modeller tercih edilmelidir. Alanın yüksekliği de göz önünde bulundurulmalıdır. Yüksek tavanlı alanlarda daha güçlü modeller veya dar açılı lensler tercih edilmelidir.</li>
+            <li><strong>IP Koruması:</strong> Dış mekân kullanımı için en az IP65, tozlu ve nemli ortamlar için IP66-IP67, su altı veya aşırı zorlu koşullar için IP68 korumalı modeller seçilmelidir. IP kodu, toz ve suya karşı koruma seviyesini belirtir ve doğru seçim ürün ömrünü doğrudan etkiler.</li>
+            <li><strong>Renk Sıcaklığı:</strong> Sıcak beyaz (2700K-3000K) bahçe ve dekoratif aydınlatma için; gün ışığı (4000K-4500K) genel aydınlatma için; soğuk beyaz (6000K-6500K) güvenlik ve endüstriyel alanlar için uygundur. Renk sıcaklığı seçimi, mekânın atmosferini ve fonksiyonelliğini belirler.</li>
+            <li><strong>Işık Açısı (Beam Angle):</strong> Dar açılı (30°-60°) modeller uzak mesafelere yoğun ışık gönderir. Geniş açılı (90°-120°) modeller ise daha geniş alanları homojen aydınlatır. Bazı modellerde ayarlanabilir lens seçenekleri de bulunur.</li>
+            <li><strong>Enerji Verimliliği (lm/W):</strong> Yüksek lümen/watt oranına sahip modeller daha az enerji ile daha fazla ışık üretir. Günümüzde 120-150 lm/W verimlilik değerleri standart kabul edilmektedir. Premium modellerde bu değer 180 lm/W'e kadar çıkabilir.</li>
+            <li><strong>Sertifikalar ve Garanti:</strong> CE, RoHS ve TSE sertifikalarına sahip ürünler tercih edilmelidir. En az 2 yıl garanti sunan markalar güvenilirlik açısından öne çıkar. Ayrıca elektromanyetik uyumluluk (EMC) sertifikası da önemli bir kriterdir.</li>
+        </ol>
+
+        <hr>
+
+        <h2>LED Projektörün Avantajları Nelerdir?</h2>
+        <p>LED projektörler, geleneksel aydınlatma sistemlerine göre birçok üstün özellik sunar. Bu avantajlar hem kullanıcı hem de çevre açısından önemli faydalar sağlar:</p>
+        
+        <ul>
+            <li><strong>Enerji Tasarrufu:</strong> Halojen projektörlere göre %80'e varan enerji tasarrufu sağlar. Yıllık elektrik faturalarında ciddi düşüşler görülür. Özellikle büyük ölçekli projelerde bu tasarruf çok daha belirgin hale gelir.</li>
+            <li><strong>Uzun Ömür:</strong> 30.000 ila 100.000 saat arası kullanım ömrü ile ampul değiştirme derdini ortadan kaldırır. Geleneksel projektörler ortalama 2.000-5.000 saat ömre sahipken, LED modeller yıllarca sorunsuz çalışır.</li>
+            <li><strong>Anında Yanma:</strong> Soğuk havalarda bile saniyeler içinde tam parlaklığa ulaşır. Isınma süresi beklemez. Metal halide lambaların 10-15 dakikalık ısınma süresine kıyasla bu büyük bir avantajdır.</li>
+            <li><strong>Çevre Dostu:</strong> Cıva ve kurşun içermez. Geri dönüştürülebilir malzemelerden üretilir. Karbon ayak izini önemli ölçüde azaltır ve yeşil bina sertifikalarına katkı sağlar.</li>
+            <li><strong>Düşük Isı Yayılımı:</strong> Geleneksel projektörlere göre çok daha az ısı üretir. Bu özellik yangın riskini azaltır ve yaz aylarında ortam sıcaklığını artırmaz. Özellikle kapalı alanlarda klima maliyetlerini düşürür.</li>
+            <li><strong>Titreşimsiz Işık:</strong> Göz yorgunluğu yaratmayan, sabit ve homojen ışık sağlar. Spor ve güvenlik uygulamaları için idealdir. Kamera kayıtlarında da titreşim nedeniyle oluşan görüntü bozukluklarını engeller.</li>
+        </ul>
+
+        <hr>
+
+        <h2>Sonuç</h2>
+        <p>LED projektörler, günümüzün en verimli ve çok yönlü aydınlatma çözümlerindendir. Bahçeden stadyuma, depodan bina cephesine kadar geniş bir kullanım alanına sahiptir. Doğru güç, renk sıcaklığı ve IP koruması seçimiyle hem enerji tasarrufu sağlayabilir hem de mekânınıza güvenli ve estetik bir aydınlatma kazandırabilirsiniz. Teknolojinin gelişmesiyle birlikte akıllı özellikler, sensör entegrasyonları ve daha yüksek verimlilik değerleri LED projektörleri geleceğin aydınlatma standardı haline getirmiştir. İhtiyacınıza en uygun <a href="https://ledlamba.com/urun-kategori/led-projektor/">LED projektör</a> modellerini inceleyerek projeleriniz için ideal çözümü bulabilirsiniz.</p>
+
+        <div style="margin-top: 3rem; padding: 1.5rem; background: rgba(245, 158, 11, 0.05); border: 1px solid rgba(245, 158, 11, 0.2); border-radius: 1rem; text-align: center;">
+            <p style="margin-bottom: 0.5rem; color: #fbbf24; font-weight: 600;">Elektrik Aydınlatma</p>
+            <p style="color: #9ca3af; font-size: 0.875rem;">LED Aydınlatma Çözümleri ve Teknik Danışmanlık</p>
+            <p style="margin-top: 0.5rem;"><a href="tel:05322471280" style="color: #f59e0b; text-decoration: none; font-weight: 600;">0532 247 1280</a></p>
+        </div>
+    </div>
+</body>
+</html>'''
+
+# Save the file
+with open('/mnt/agents/output/led-projektor-nedir.html', 'w', encoding='utf-8') as f:
+    f.write(html_content)
+
+# Count words
+def extract_text(html):
+    import re
+    html = re.sub(r'<script[^>]*>.*?</script>', ' ', html, flags=re.DOTALL)
+    html = re.sub(r'<style[^>]*>.*?</style>', ' ', html, flags=re.DOTALL)
+    text = re.sub(r'<[^>]+>', ' ', html)
+    text = re.sub(r'\s+', ' ', text).strip()
+    return text
+
+text = extract_text(html_content)
+words = text.split()
+print(f"Final word count: {len(words)}")
