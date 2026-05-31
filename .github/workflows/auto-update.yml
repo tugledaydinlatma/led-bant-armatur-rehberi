@@ -1,10 +1,11 @@
-name: Auto Update Articles
+name: Auto Update Articles and Sitemap
 
 on:
   push:
     branches: [ main, master ]
     paths:
       - 'Arsiv/**'
+      - 'articles.json'
   workflow_dispatch:
 
 env:
@@ -18,6 +19,8 @@ jobs:
     
     steps:
     - uses: actions/checkout@v4
+      with:
+        fetch-depth: 0
     
     - name: Set up Python
       uses: actions/setup-python@v5
@@ -30,14 +33,20 @@ jobs:
     - name: Auto-generate articles.json
       run: python .github/scripts/update_articles.py
     
+    - name: Generate sitemap.xml
+      run: python .github/scripts/generate_sitemap.py
+    
+    - name: Ping search engines
+      run: python .github/scripts/ping_search_engines.py
+    
     - name: Commit and push changes
       run: |
         git config user.name "github-actions[bot]"
         git config user.email "github-actions[bot]@users.noreply.github.com"
-        git add articles.json
+        git add articles.json sitemap.xml
         if git diff --cached --quiet; then
           echo "No changes to commit"
         else
-          git commit -m "Auto-update articles.json from Arsiv folder"
+          git commit -m "Auto-update articles.json and sitemap.xml"
           git push
         fi
