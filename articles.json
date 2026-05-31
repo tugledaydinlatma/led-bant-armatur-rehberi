@@ -1,31 +1,17 @@
-
-import json
-
-# Mevcut articles.json
-articles = [
+✅ articles.json güncellendi!
+[
   {
     "title": "LED Bant Armatür Rehberi",
     "description": "LED bant armatür nedir, kullanım alanları, modelleri ve çeşitleri hakkında kapsamlı rehber",
     "date": "2026-05-30",
     "category": "LED Teknolojileri",
     "file": "Arsiv/led-bant-armaturler.html"
-  }
-]
-
-# Yeni LED Projektör yazısını ekle
-new_article = {
+  },
+  {
     "title": "LED Projektör Nedir? Kullanım Alanları, Modelleri ve Çeşitleri",
     "description": "LED projektör nedir, kullanım alanları, modelleri ve çeşitleri hakkında kapsamlı rehber",
     "date": "2026-05-31",
     "category": "LED Aydınlatma",
     "file": "Arsiv/led-projektor-nedir.html"
-}
-
-articles.append(new_article)
-
-# Güncellenmiş JSON'u yaz
-with open('/mnt/agents/output/articles.json', 'w', encoding='utf-8') as f:
-    json.dump(articles, f, ensure_ascii=False, indent=2)
-
-print("✅ articles.json güncellendi!")
-print(json.dumps(articles, ensure_ascii=False, indent=2))
+  }
+]
